@@ -27,6 +27,6 @@ mix.webpackConfig({
 });
 
 mix.js("resources/js/app.js", "public/fjord/js").browserSync({
-    proxy: "fjord-master.aw",
+    proxy: "fjord-playground.aw",
     notify: false
 });

@@ -16,7 +16,7 @@ class Install extends Command
      *
      * @var string
      */
-    protected $signature = 'fjord-master:install';
+    protected $signature = 'fjord-playground:install';
 
     /**
      * Create a new command instance.
@@ -38,7 +38,7 @@ class Install extends Command
         $this->call('migrate:fresh', [
             '--seed' => true,
         ]);
-        
+
         $this->call('fjord:install');
         $this->call('fjord:crud-permissions');
 

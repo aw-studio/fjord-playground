@@ -24,6 +24,7 @@
     "dependencies": {
         "bootstrap-vue": "^2.5.0",
         "fjord": "file:vendor/aw-studio/fjord",
-        "vue": "^2.6.11"
+        "vue": "^2.6.11",
+        "vue-gtag": "^1.6.2"
     }
 }
