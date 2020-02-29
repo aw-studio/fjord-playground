@@ -11,7 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $departments = ['Develepment', 'Marketing', 'Project-Management', 'Sales', 'Human-Resources'];
+        $departments = ['Development', 'Marketing', 'Project-Management', 'Sales', 'Human-Resources'];
         foreach ($departments as $department) {
             factory(App\Models\Department::class, 1)->create([
                 'name' => $department
