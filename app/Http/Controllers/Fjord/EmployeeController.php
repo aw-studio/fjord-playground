@@ -11,7 +11,8 @@ class EmployeeController extends CrudController
 {
     use CrudIndexDeleteAll,
         CrudShowForm,
-        CrudShowPreview;
+        CrudShowPreview,
+        Actions\EmployeeActions;
 
     // Set this to false if you don't want to use permissions on this crud-model
     public const PERMISSIONS = true;
