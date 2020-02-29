@@ -22,14 +22,15 @@
             </div>
         @endisset
 
-
-        <div class="row">
-            @foreach ($formFields->content_block as $block)
-                @include('blocks.'.$block->type, [
-                    'block' => $block
-                ])
-            @endforeach
-        </div>
+        @isset($formFields->content_block)
+            <div class="row">
+                @foreach ($formFields->content_block as $block)
+                    @include('blocks.'.$block->type, [
+                        'block' => $block
+                    ])
+                @endforeach
+            </div>
+        @endisset
 
     </div>
 @endsection
