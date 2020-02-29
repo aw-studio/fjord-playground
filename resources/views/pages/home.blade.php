@@ -5,7 +5,7 @@
     <div class="container">
         <h1>{{$formFields->h1}}</h1>
 
-        @isset($formFields->executives)
+        @if($formFields->executives)
             <div class="row">
                 @foreach ($formFields->executives as $employee)
                     <div class="col-12 col-md-4">
@@ -20,9 +20,9 @@
                     </div>
                 @endforeach
             </div>
-        @endisset
+        @endif
 
-        @isset($formFields->content_block)
+        @if($formFields->content_block)
             <div class="row">
                 @foreach ($formFields->content_block as $block)
                     @include('blocks.'.$block->type, [
@@ -30,7 +30,7 @@
                     ])
                 @endforeach
             </div>
-        @endisset
+        @endif
 
     </div>
 @endsection
