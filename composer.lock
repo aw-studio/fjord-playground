@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8a4a79efbd5fa9175b263d7ced678e8e",
+    "content-hash": "ffc5d9a930934848ee4d052b3c41427a",
     "packages": [
         {
             "name": "astrotomic/laravel-translatable",
@@ -72,16 +72,16 @@
         },
         {
             "name": "aw-studio/fjord",
-            "version": "v1.6.0",
+            "version": "v1.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aw-studio/fjord.git",
-                "reference": "1030681a6f1d903d1e6621e43f79422c39e5ca68"
+                "reference": "87b14468702e21984688ab80c027931921c32360"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aw-studio/fjord/zipball/1030681a6f1d903d1e6621e43f79422c39e5ca68",
-                "reference": "1030681a6f1d903d1e6621e43f79422c39e5ca68",
+                "url": "https://api.github.com/repos/aw-studio/fjord/zipball/87b14468702e21984688ab80c027931921c32360",
+                "reference": "87b14468702e21984688ab80c027931921c32360",
                 "shasum": ""
             },
             "require": {
@@ -123,7 +123,7 @@
                 }
             ],
             "description": "Fjord: A Laravel CMS/Admin-Panel",
-            "time": "2020-02-28T17:34:46+00:00"
+            "time": "2020-02-29T15:00:47+00:00"
         },
         {
             "name": "cocur/slugify",
