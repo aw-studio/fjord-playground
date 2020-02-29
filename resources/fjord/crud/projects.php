@@ -16,6 +16,16 @@ return [
                 'component' => 'project-status',
                 'label' => 'Status'
             ],
+            [
+                'key' => '{completion_date}',
+                'component' => 'project-completion',
+                'label' => 'Days left'
+            ],
+            [
+                'key' => '{staff}',
+                'component' => 'project-team',
+                'label' => 'Staff'
+            ],
         ],
         'search' => ['title', 'manager.last_name'],
         'sort_by' => [
@@ -39,6 +49,7 @@ return [
         'load' => [
             'manager' => App\Models\Employee::class,
             'status' => App\Models\ProjectStatus::class,
+            'staff.department' =>App\Models\Employee::class,
         ]
     ],
     // 'names' => [

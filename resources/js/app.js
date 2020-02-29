@@ -1,4 +1,5 @@
 import Fjord from "fjord";
+window.moment = require("moment");
 
 require("./service/component.service");
 import VueGtag from "vue-gtag";
