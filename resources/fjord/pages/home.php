@@ -14,6 +14,24 @@ return [
             'width' => 12
         ],
         [
+            'id' => 'executives',
+            'type' => 'relation',
+            'model' => \App\Models\Employee::class,
+            'edit' => 'employees',
+            'many' => true,
+            'preview' => [
+                [
+                    'type' => 'image',
+                    'key' => 'image.conversion_urls.sm'
+                ],
+                '{fullName}',
+            ],
+            'title' => 'Executives',
+            'hint' => 'Choose the company\'s executives.',
+            'width' => 12,
+            'button' => 'Add Executive'
+        ],
+        [
             'id' => 'content_block',
             'type' => 'block',
             'title' => 'Content',
@@ -22,6 +40,6 @@ return [
             'repeatables' => [
                 'text', 'image'
             ]
-        ]
+        ],
     ]
 ];

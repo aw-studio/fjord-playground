@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController')->name('home');
+Route::resource('employees', 'EmployeeController')->only(['index', 'show']);
+Route::resource('departments', 'DepartmentController')->only(['index', 'show']);

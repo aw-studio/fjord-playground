@@ -4,9 +4,9 @@ return [
     [
         'translatable' => true,
         'type' => 'image',
-        'id' => 'logo_image',
+        'id' => 'image',
         'title' => 'Image',
-        'hint' => 'Lorem ipsum',
+        'hint' => 'A colorful image',
         'width' => 12,
         'maxFiles' => 1,
     ],
