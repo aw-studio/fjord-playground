@@ -22,6 +22,11 @@ return [
                 'key' => '{department.name}',
                 'label' => 'Department'
             ],
+            [
+                'key' => '{projects}',
+                'component' => 'employee-projects',
+                'label' => 'Projects'
+            ],
         ],
         'search' => ['last_name', 'first_name'],
         'sort_by' => [
@@ -42,7 +47,8 @@ return [
         //
         // Models that should be eager-loaded
         'load' => [
-            'department' => App\Models\Department::class
+            'department' => App\Models\Department::class,
+            'projects' => App\Models\Projects::class
         ]
     ],
     // 'names' => [
