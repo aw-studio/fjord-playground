@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e8414efa22aaf6f427d12a6f566fdb79",
+    "content-hash": "3f492114724825a952f722c6dcf9f4ae",
     "packages": [
         {
             "name": "astrotomic/laravel-translatable",
@@ -72,25 +72,25 @@
         },
         {
             "name": "aw-studio/fjord",
-            "version": "v1.6.1",
+            "version": "v1.7.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aw-studio/fjord.git",
-                "reference": "87b14468702e21984688ab80c027931921c32360"
+                "reference": "c51264cab1ae960692f583bb20f8446724ec4724"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aw-studio/fjord/zipball/87b14468702e21984688ab80c027931921c32360",
-                "reference": "87b14468702e21984688ab80c027931921c32360",
+                "url": "https://api.github.com/repos/aw-studio/fjord/zipball/c51264cab1ae960692f583bb20f8446724ec4724",
+                "reference": "c51264cab1ae960692f583bb20f8446724ec4724",
                 "shasum": ""
             },
             "require": {
-                "astrotomic/laravel-translatable": "^11.1",
-                "cviebrock/eloquent-sluggable": "^4.8|^6.0",
+                "astrotomic/laravel-translatable": "^11.1|^11.8",
+                "cviebrock/eloquent-sluggable": "^4.8|^6.0|^7.0",
                 "php": "^7.2",
-                "spatie/eloquent-sortable": "^3.6|^3.7",
-                "spatie/laravel-medialibrary": "^7.0.0|^7.1.0",
-                "spatie/laravel-permission": "^2.37|^3.0"
+                "spatie/eloquent-sortable": "^3.6|^3.7|^3.8",
+                "spatie/laravel-medialibrary": "^7.0.0|^7.1.0|^7.19",
+                "spatie/laravel-permission": "^2.37|^3.0|^3.11"
             },
             "type": "project",
             "extra": {
@@ -123,7 +123,7 @@
                 }
             ],
             "description": "Fjord: A Laravel CMS/Admin-Panel",
-            "time": "2020-02-29T15:00:47+00:00"
+            "time": "2020-03-19T20:34:51+00:00"
         },
         {
             "name": "cocur/slugify",
