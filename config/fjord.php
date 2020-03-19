@@ -134,9 +134,7 @@ return [
         'settings' => [
             'translatable' => false,
         ],
-        'collections' => [
-
-        ]
+        'collections' => []
     ],
 
 
