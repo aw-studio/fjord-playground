@@ -17,6 +17,6 @@ $factory->define(Project::class, function (Faker $faker) {
         'employee_id' => Employee::projectManagement()->inRandomOrder()->first()->id,
         'completion_date' => $faker->dateTimeBetween($until, $from, $timezone = null),
         'budget' => $faker->randomFloat($nbMaxDecimals = 2, $min = 5000, $max = 200000),
-        'project_status_id' => $faker->numberBetween($min = 1, $max = 6),
+        'project_states_id' => $faker->numberBetween($min = 1, $max = 6),
     ];
 });

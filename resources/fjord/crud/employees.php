@@ -85,7 +85,7 @@ return [
                 'id' => 'department_id',
                 'type' => 'select',
                 'title' => 'Department',
-                'options' => App\Models\Department::all()->mapWithKeys(function($item, $key){
+                'options' => App\Models\Department::all()->mapWithKeys(function ($item, $key) {
                     return [$item->id => $item->name];
                 })->toArray(),
                 'hint' => 'Select Department',
@@ -100,7 +100,7 @@ return [
                 'image_size' => 12,
                 'maxFiles' => 1,
                 'crop' => true,
-                'ratio' => 3/4,
+                'ratio' => 3 / 4,
                 'square' => false
             ],
         ],

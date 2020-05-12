@@ -36,10 +36,10 @@ return [
     */
 
     'guards' => [
-            'fjord' => [
-                'driver' => 'session',
-                'provider' => 'fjord_users',
-            ],
+        'fjord' => [
+            'driver' => 'session',
+            'provider' => 'fjord_users',
+        ],
         'web' => [
             'driver' => 'session',
             'provider' => 'users',
@@ -70,10 +70,10 @@ return [
     */
 
     'providers' => [
-            'fjord_users' => [
-                'driver' => 'eloquent',
-                'model' => AwStudio\Fjord\Fjord\Models\FjordUser::class,
-            ],
+        'fjord_users' => [
+            'driver' => 'eloquent',
+            'model' => Fjord\User\Models\FjordUser::class,
+        ],
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
@@ -101,6 +101,12 @@ return [
     */
 
     'passwords' => [
+        'fjord_users' => [
+            'provider' => 'fjord_users',
+            'table' => 'password_resets',
+            'expire' => 60,
+            'throttle' => 60,
+        ],
         'users' => [
             'provider' => 'users',
             'table' => 'password_resets',

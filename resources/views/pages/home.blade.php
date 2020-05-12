@@ -2,6 +2,86 @@
 
 
 @section('content')
+<section id="hero" class="d-flex align-items-center">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
+          <h1>Elegant and creative solutions</h1>
+          <h2>We are team of talanted designers making websites with Bootstrap</h2>
+          <div class="d-flex">
+            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          <img src="/img/hero-img.png" class="img-fluid animated" alt="">
+        </div>
+      </div>
+    </div>
+
+  </section><!-- End Hero -->
+
+    <main id="main">
+        <section id="featured-services" class="featured-services">
+            <div class="container">
+
+                <div class="row">
+                    @foreach($home->cards as $card)
+                    <div class="col-lg-4 col-md-6 mt-4 mb-4 mt-md-0 text-center">
+                        <div class="icon-box">
+                          <div class="icon">{!! $card->icon !!}</div>
+                          <h4 class="title"><a href="#">{{ $card->title }}</a></h4>
+                          <p class="description">{{ $card->title }}</p>
+                        </div>
+                      </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+
+      <section id="portfolio" class="portfolio">
+        <div class="container">
+  
+          <div class="section-title">
+            <span>{{ $home->portfolio_title }}</span>
+            <h2>{{ $home->portfolio_title }}</h2>
+            {!! $home->portfolio_text !!}
+          </div>
+  
+          <div class="row">
+            <div class="col-lg-12 d-flex justify-content-center">
+              <ul id="portfolio-flters">
+                <li data-filter="*" class="filter-active">All</li>
+                @foreach($home->portfolio_images as $block)
+                    <li data-filter=".filter-{{ $block->name }}">{{ $block->name }}</li>
+                @endforeach
+              </ul>
+            </div>
+          </div>
+  
+          <div class="row portfolio-container">
+            @foreach($home->portfolio_images as $block)
+                @foreach($block->images as $id => $image) 
+                <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $block->name }}">
+                    <img src="{{ $image->conversion_urls['lg'] }}" class="img-fluid" alt="">
+                    <div class="portfolio-info">
+                      <h4>{{ $block->name }} {{ $id + 1 }}</h4>
+                      <p>{{ $block->name }}</p>
+                      <a href="{{ $image->conversion_urls['lg'] }}" data-gall="portfolioGallery" class="venobox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+                      <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+                    </div>
+                  </div>
+                @endforeach
+            @endforeach
+              </div>
+  
+        </div>
+      </section><!-- End Portfolio Section -->
+  
+
+  </main>
+{{-- 
     <div class="container">
         <h1>{{$formFields->h1}}</h1>
 
@@ -33,4 +113,5 @@
         @endif
 
     </div>
+     --}}
 @endsection

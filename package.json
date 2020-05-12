@@ -24,6 +24,8 @@
     "dependencies": {
         "bootstrap-vue": "^2.5.0",
         "fjord": "file:vendor/aw-studio/fjord",
+        "fjord-permissions": "file:vendor/aw-studio/fjord-permissions",
+        "jquery": "^3.5.1",
         "moment": "^2.24.0",
         "vue": "^2.6.11",
         "vue-gtag": "^1.6.2"

@@ -1,3 +1,4 @@
+require("fjord/resources/js/mix.js");
 const mix = require("laravel-mix");
 
 /*
@@ -11,22 +12,7 @@ const mix = require("laravel-mix");
  |
  */
 
-mix.webpackConfig({
-    resolve: {
-        alias: {
-            "@fj-js": path.resolve(
-                __dirname,
-                "vendor/aw-studio/fjord/resources/js/"
-            ),
-            "@fj-sass": path.resolve(
-                __dirname,
-                "vendor/aw-studio/fjord/resources/sass/"
-            )
-        }
-    }
-});
-
-mix.js("resources/js/app.js", "public/fjord/js").browserSync({
+mix.browserSync({
     proxy: "fjord-playground.aw",
     notify: false
 });

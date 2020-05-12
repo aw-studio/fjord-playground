@@ -2,28 +2,27 @@
 
 namespace App\Models;
 
-use AwStudio\Fjord\Fjord\Models\Model as FjordModel;
+use Illuminate\Database\Eloquent\Model;
+use Fjord\Crud\Models\Traits\TrackEdits;
 
-class Department extends FjordModel
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
+use Fjord\Crud\Models\Traits\Translatable;
+
+class Department extends Model implements TranslatableContract
 {
-    // enter all fillable columns. translated columns must also
-    // be set fillable. don't forget to also set them fillable in
-    // the coresponding translation-model
-    protected $fillable = ['name'];
+    use TrackEdits, Translatable;
 
-    protected $appends= ['employees_count'];
+    protected $fillable = [];
 
+    protected $appends = ['employees_count'];
+
+    public $translatedAttributes = ['name'];
 
     public function getEmployeesCountAttribute()
     {
         return $this->employees()->count();
     }
 
-    /**
-     * Relations
-     *
-     *
-     */
     public function employees()
     {
         return $this->hasMany('App\Models\Employee');

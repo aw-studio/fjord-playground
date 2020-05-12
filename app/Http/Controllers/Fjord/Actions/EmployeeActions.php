@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Fjord\Actions;
 
-use AwStudio\Fjord\Support\Facades\FjordRoute;
+use Fjord\Support\Facades\FjordRoute;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\EmployeeExport;

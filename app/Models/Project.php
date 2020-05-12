@@ -2,24 +2,25 @@
 
 namespace App\Models;
 
-use AwStudio\Fjord\Fjord\Models\Model as FjordModel;
+use App\Models\ProjectState;
+use Illuminate\Database\Eloquent\Model;
 
+use Fjord\Crud\Models\Traits\TrackEdits;
+use Fjord\Crud\Models\Traits\Translatable;
+use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 
-class Project extends FjordModel
+class Project extends Model implements TranslatableContract
 {
-    // enter all fillable columns. translated columns must also
-    // be set fillable. don't forget to also set them fillable in
-    // the coresponding translation-model
+    use TrackEdits, Translatable;
+
     protected $fillable = [
-        'title',
-        'description',
         'employee_id',
         'completion_date',
         'budget',
-        'project_status_id',
+        'project_states_id',
     ];
 
-
+    public $translatedAttributes = ['title', 'description'];
 
     /**
      * Relations
@@ -36,7 +37,7 @@ class Project extends FjordModel
     }
     public function status()
     {
-        return $this->belongsTo('App\Models\ProjectStatus', 'project_status_id');
+        return $this->belongsTo(ProjectState::class, 'project_states_id');
     }
 
     /**
@@ -44,45 +45,45 @@ class Project extends FjordModel
      *
      *
      */
-     public function scopeActive($query)
-     {
-         return $query->where('active', 1);
-     }
+    public function scopeActive($query)
+    {
+        return $query->where('active', 1);
+    }
 
-     public function scopeOnTrack($query)
-     {
-         return $query->whereHas('status', function($query){
-             $query->where('id', 1);
-         });
-     }
-     public function scopeOffTrack($query)
-     {
-         return $query->whereHas('status', function($query){
-             $query->where('title', 'off track');
-         });
-     }
-     public function scopeOnHold($query)
-     {
-         return $query->whereHas('status', function($query){
-             $query->where('title', 'on hold');
-         });
-     }
-     public function scopeReady($query)
-     {
-         return $query->whereHas('status', function($query){
-             $query->where('title', 'ready');
-         });
-     }
-     public function scopeBlocked($query)
-     {
-         return $query->whereHas('status', function($query){
-             $query->where('title', 'blocked');
-         });
-     }
-     public function scopeFinished($query)
-     {
-         return $query->whereHas('status', function($query){
-             $query->where('title', 'finished');
-         });
-     }
+    public function scopeOnTrack($query)
+    {
+        return $query->whereHas('status', function ($query) {
+            $query->where('id', 1);
+        });
+    }
+    public function scopeOffTrack($query)
+    {
+        return $query->whereHas('status', function ($query) {
+            $query->where('title', 'off track');
+        });
+    }
+    public function scopeOnHold($query)
+    {
+        return $query->whereHas('status', function ($query) {
+            $query->where('title', 'on hold');
+        });
+    }
+    public function scopeReady($query)
+    {
+        return $query->whereHas('status', function ($query) {
+            $query->where('title', 'ready');
+        });
+    }
+    public function scopeBlocked($query)
+    {
+        return $query->whereHas('status', function ($query) {
+            $query->where('title', 'blocked');
+        });
+    }
+    public function scopeFinished($query)
+    {
+        return $query->whereHas('status', function ($query) {
+            $query->where('title', 'finished');
+        });
+    }
 }

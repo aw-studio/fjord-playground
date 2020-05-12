@@ -2,32 +2,30 @@
 
 namespace App\Models;
 
-use AwStudio\Fjord\Fjord\Models\Model as FjordModel;
 use Spatie\MediaLibrary\Models\Media;
-use Spatie\MediaLibrary\HasMedia\HasMedia;
-use Spatie\MediaLibrary\HasMedia\HasMediaTrait;
+use Illuminate\Database\Eloquent\Model;
 
-class Employee extends FjordModel implements HasMedia
+use Fjord\Crud\Models\Traits\TrackEdits;
+
+use Fjord\Crud\Models\Traits\HasMedia;
+use Spatie\MediaLibrary\HasMedia\HasMedia as HasMediaContract;
+
+class Employee extends Model implements HasMediaContract
 {
-    use HasMediaTrait;
+    use TrackEdits, HasMedia;
 
-    // enter all fillable columns. translated columns must also
-    // be set fillable. don't forget to also set them fillable in
-    // the coresponding translation-model
     protected $fillable = [
         'first_name',
         'last_name',
         'email',
         'department_id'
     ];
-    protected $appends = ['image', 'fullName'];
-    protected $with = ['media'];
 
-    /**
-     * Realtions
-     *
-     *
-     */
+    protected $appends = [
+        'image',
+        'fullName'
+    ];
+
     public function department()
     {
         return $this->belongsTo('App\Models\Department');
@@ -81,9 +79,9 @@ class Employee extends FjordModel implements HasMedia
     {
         foreach (config('fjord.mediaconversions.default') as $key => $value) {
             $this->addMediaConversion($key)
-                  ->width($value[0])
-                  ->height($value[1])
-                  ->sharpen($value[2]);
+                ->width($value[0])
+                ->height($value[1])
+                ->sharpen($value[2]);
         }
     }
 }

@@ -46,16 +46,26 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Fjord Navigation-Layout
+    | Fjord Translatable
     |--------------------------------------------------------------------------
     |
-    | With this option you may set the fjord navigation layout.
-    |
-    | Supported: "horizontal", "vertical"
+    | Set the default route a user is redirected to after logging in.
     |
     */
 
-    'layout' => env('FJORD_LAYOUT', 'vertical'),
+    'translatable' => [
+
+        'locale' => 'en',
+
+        'translatable' => false,
+
+        'locales' => [
+            'en',
+            'de'
+        ],
+
+        'fallback_locale' => 'en',
+    ],
 
 
     /*

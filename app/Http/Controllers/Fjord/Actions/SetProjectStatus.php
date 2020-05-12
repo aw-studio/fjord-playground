@@ -2,23 +2,23 @@
 
 namespace App\Http\Controllers\Fjord\Actions;
 
-use AwStudio\Fjord\Support\Facades\FjordRoute;
+use Fjord\Support\Facades\FjordRoute;
 use Illuminate\Http\Request;
 
 use App\Models\Project;
-use App\Models\ProjectStatus;
+use App\Models\ProjectState;
 
-trait SetProjectStatus
+trait SetProjectState
 {
     public function makeSetProjectStatusRoute()
     {
-        FjordRoute::post("/set-project-status/{project}", self::class . "@setProjectStatus");
+        FjordRoute::post("/set-project-status/{project}", self::class . "@setProjectState");
     }
 
     protected function setProjectStatus(Request $request, Project $project)
     {
         $project->update([
-            'project_status_id' => ProjectStatus::firstWhere('title', $request->status)->id
+            'project_states_id' => ProjectState::firstWhere('title', $request->status)->id
         ]);
 
         return response()->json('success', 200);

@@ -23,13 +23,13 @@ return [
     /*
      * The fully qualified class name of the media model.
      */
-    'media_model' => AwStudio\Fjord\Form\Database\Media::class,
+    'media_model' => Fjord\Crud\Models\Media::class,
 
     's3' => [
         /*
          * The domain that should be prepended when generating urls.
          */
-        'domain' => 'https://'.env('AWS_BUCKET').'.s3.amazonaws.com',
+        'domain' => 'https://' . env('AWS_BUCKET') . '.s3.amazonaws.com',
     ],
 
     'remote' => [

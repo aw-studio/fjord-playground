@@ -16,9 +16,9 @@ class CreateStaffTable extends Migration
         Schema::create('staff', function (Blueprint $table) {
             $table->bigIncrements('id');
 
-            $table->unsignedBigInteger('project_id');
+            $table->unsignedBigInteger('model_id');
+            $table->string('model_type');
             $table->unsignedBigInteger('employee_id');
-            $table->foreign('project_id')->references('id')->on('projects');
             $table->foreign('employee_id')->references('id')->on('employees');
 
             $table->timestamps();

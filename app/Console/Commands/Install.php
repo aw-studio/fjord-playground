@@ -3,11 +3,8 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Fjord\User\Models\FjordUser;
 use Illuminate\Support\Facades\Hash;
-use AwStudio\Fjord\Fjord\Models\FjordUser;
-use Spatie\Permission\Models\Permission;
-use Spatie\Permission\Models\Role;
-
 
 class Install extends Command
 {
@@ -40,22 +37,7 @@ class Install extends Command
         ]);
 
         $this->call('fjord:install');
-        $this->call('fjord:crud-permissions');
 
-
-        $user = FjordUser::create([
-            'name' => 'admin',
-            'email' => 'admin@example.com',
-            'password' => Hash::make('secret'),
-        ]);
-
-        $user->assignRole('admin');
-
-        $permissions = Permission::where('guard_name', 'fjord')->get();
-        $role = Role::where('name', 'admin')->first();
-
-        foreach ($permissions as $permission) {
-            $role->givePermissionTo($permission->name);
-        }
+        $this->call('dump:load');
     }
 }

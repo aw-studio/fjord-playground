@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\ProjectState;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -29,7 +30,7 @@ class DatabaseSeeder extends Seeder
             'finished'
         ];
         foreach ($statuses as $status) {
-            factory(App\Models\ProjectStatus::class, 1)->create([
+            factory(App\Models\ProjectState::class, 1)->create([
                 'title' => $status
             ]);
         }

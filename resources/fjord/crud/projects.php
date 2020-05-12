@@ -49,7 +49,7 @@ return [
         'load' => [
             'manager' => App\Models\Employee::class,
             'status' => App\Models\ProjectStatus::class,
-            'staff.department' =>App\Models\Employee::class,
+            'staff.department' => App\Models\Employee::class,
         ]
     ],
     // 'names' => [
@@ -71,7 +71,7 @@ return [
                 'id' => 'employee_id',
                 'type' => 'select',
                 'title' => 'Projectmanager',
-                'options' => App\Models\Employee::projectManagement()->get()->mapWithKeys(function($item, $key){
+                'options' => App\Models\Employee::projectManagement()->get()->mapWithKeys(function ($item, $key) {
                     return [$item->id => $item->fullName];
                 })->toArray(),
                 'hint' => 'Select a Projectmanager',
@@ -100,7 +100,7 @@ return [
                 'id' => 'project_status_id',
                 'type' => 'select',
                 'title' => 'Status',
-                'options' => App\Models\ProjectStatus::get()->mapWithKeys(function($item, $key){
+                'options' => App\Models\ProjectStatus::get()->mapWithKeys(function ($item, $key) {
                     return [$item->id => $item->title];
                 })->toArray(),
                 'hint' => 'Select a Status',
