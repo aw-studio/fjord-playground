@@ -5,25 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Fjord\Crud\Models\Traits\TrackEdits;
 
-use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
-use Fjord\Crud\Models\Traits\Translatable;
-
-class ProjectState extends Model implements TranslatableContract
+class ProjectState extends Model
 {
-    use TrackEdits, Translatable;
+    use TrackEdits;
 
-    protected $fillable = [];
+    protected $fillable = ['title'];
 
-    protected $appends = ['translation'];
-
-    public $translatedAttributes = ['title'];
-
-    public function setTranslationAttribute()
-    {
-        $translation = [];
-        foreach ($this->translations as $t) {
-            $translation[$t->locale] = $t;
-        }
-        return $translation;
-    }
+    protected $appends = [];
 }

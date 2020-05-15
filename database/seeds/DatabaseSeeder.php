@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
 
         $this->command->info('Upload image to page home.');
 
-        $pages->home->addMedia(storage_path('dump/home-title/Ford_Highlight.jpg'))
+        $pages->home->addMedia(storage_path('dump/home-title/fjord_preview.png'))
             ->preservingOriginal()
             ->withCustomProperties($properties)
             ->toMediaCollection('image');
@@ -97,6 +97,12 @@ class DatabaseSeeder extends Seeder
         $images = File::files(storage_path('dump/employees'));
 
         factory(Employee::class, count($images))->create()->each(function ($employee, $key) use ($images) {
+            // First two employees are in project management.
+            if ($key == 0 || $key == 1) {
+                $employee->department_id = 3;
+                $employee->save();
+            }
+
             $image = $images[$key];
 
             $properties = [

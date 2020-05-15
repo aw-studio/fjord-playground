@@ -11,7 +11,7 @@
                 :key="i"
                 @click="setProjectStatus(state)"
             >
-                {{ state.translation.en.title }}
+                {{ state.title }}
             </b-dropdown-item>
         </b-dropdown>
     </div>
@@ -49,7 +49,7 @@ export default {
                 return;
             }
 
-            this.state = state.translation.en.title;
+            this.state = state.title;
 
             this.$bvToast.toast("Status updated", {
                 variant: "success"

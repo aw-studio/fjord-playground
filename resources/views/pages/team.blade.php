@@ -13,19 +13,16 @@
 
       <div class="row">
         @foreach($employees as $employee)
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
-          <div class="member">
-            <img src="{{ $employee->image->conversion_urls['md'] }}" alt="{{ $employee->image->alt }}" title="{{ $employee->image->title }}">
-            <h4>{{ $employee->first_name }} {{ $employee->last_name }}</h4>
-            <span>{{  $employee->department->name }}</span>
-            <div class="social">
-              <a href="https://github.com/aw-studio/fjord" target="_blank"><i class="icofont-twitter"></i></a>
-              <a href="https://github.com/aw-studio/fjord" target="_blank"><i class="icofont-facebook"></i></a>
-              <a href="https://github.com/aw-studio/fjord" target="_blank"><i class="icofont-instagram"></i></a>
-              <a href="https://github.com/aw-studio/fjord" target="_blank"><i class="icofont-linkedin"></i></a>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+            <div class="member">
+              <img src="{{ $employee->image->conversion_urls['md'] }}" alt="{{ $employee->image->alt }}" title="{{ $employee->image->title }}">
+              <h4>{{ $employee->first_name }} {{ $employee->last_name }}</h4>
+              <span>{{  $employee->department->name }}</span>
+              <div class="social">
+                <a href="https://github.com/aw-studio/fjord" target="_blank"><i class="fa fas-github"></i></a>
+              </div>
             </div>
           </div>
-        </div>
         @endforeach
 
       </div>

@@ -44,14 +44,16 @@ a,
 .contact .php-email-form button[type=submit],
 .portfolio-details .portfolio-details-carousel .owl-dot.active,
 #footer .footer-top .footer-newsletter form input[type=submit],
-#footer .footer-top .social-links a:hover {
+#footer .footer-top .social-links a:hover,
+.get-started-btn:hover {
   background: #4951f2;
 }
 
 .contact .info,
 .contact .php-email-form,
 .contact .php-email-form input:focus,
-.contact .php-email-form textarea:focus {
+.contact .php-email-form textarea:focus,
+.get-started-btn:hover {
   border-color: #4951f2;
 }
 
