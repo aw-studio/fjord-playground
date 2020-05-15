@@ -36,6 +36,8 @@
         }
     </style>
 
+    @include('fjord::partials.google_analytics')
+
     <!-- =======================================================
     * Template Name: eNno - v2.0.0
     * Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/
