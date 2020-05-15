@@ -40,7 +40,7 @@ class EmployeeConfig extends CrudConfig
      */
     public $sortByDefault = 'id.desc';
 
-    public $perPage = 10;
+    public $perPage = 5;
 
     /**
      * Model singular and plural name.
@@ -77,8 +77,22 @@ class EmployeeConfig extends CrudConfig
     public function indexQuery(Builder $query)
     {
         $query->with('department');
+        $query->with('projects');
 
         return $query;
+    }
+
+    /**
+     * Index component.
+     *
+     * @param Component $component
+     * @return void
+     */
+    public function indexComponent($component)
+    {
+
+        $component->slot('headerControls', 'export-employees-button');
+        $component->slot('navControls', 'export-employees-control');
     }
 
     /**
@@ -120,12 +134,17 @@ class EmployeeConfig extends CrudConfig
             ->value('{department.name}')
             ->sortBy('department.name');
 
-        /*
-        $table->component('employee-projects')
+        $table->component('employees-projects')
             ->value('{projects}')
             ->label('Projects')
             ->sortBy('projects.title');
-            */
+
+        $table->component('employees-actions')
+            ->value('{projects}')
+            ->label('Projects')
+            ->sortBy('projects.title')
+            ->link(false)
+            ->small();
     }
 
     /**

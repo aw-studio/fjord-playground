@@ -54,12 +54,15 @@ class ProfileSettingsConfig
             $form->modal('change_email')
                 ->title('E-Mail')
                 ->variant('primary')
-                //->preview('{email}')
+                ->preview('{email}')
                 ->name('Change E-Mail')
                 ->confirmWithPassword()
                 ->form(function ($modal) {
                     $modal->input('email')
                         ->cols(12)
+                        ->rules('required', function ($attribute, $value, $fail) {
+                            return $fail('Oops, this is just a demo.');
+                        })
                         ->title('E-Mail');
                 })->cols(6);
 
@@ -90,7 +93,9 @@ class ProfileSettingsConfig
 
                     $modal->password('password')
                         ->title('New Password')
-                        ->rules('required', 'min:5')
+                        ->rules('required', 'min:5', function ($attribute, $value, $fail) {
+                            return $fail('Oops, this is just a demo.');
+                        })
                         ->minScore(0);
 
                     $modal->password('password_confirmation')

@@ -2,9 +2,12 @@
 
 namespace FjordApp\Controllers\Crud;
 
-use Illuminate\Database\Eloquent\Builder;
-
 use Fjord\User\Models\FjordUser;
+
+use FjordApp\Exports\EmployeeExport;
+use Maatwebsite\Excel\Facades\Excel;
+use Fjord\Crud\Requests\CrudReadRequest;
+use Illuminate\Database\Eloquent\Builder;
 use Fjord\Crud\Controllers\CrudController;
 
 class EmployeeController extends CrudController
@@ -37,5 +40,10 @@ class EmployeeController extends CrudController
     public function query(): Builder
     {
         return $this->model::query();
+    }
+
+    public function exportEmployees(CrudReadRequest $request)
+    {
+        return Excel::download(new EmployeeExport, now() . '_employees.xlsx');
     }
 }

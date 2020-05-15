@@ -14,5 +14,16 @@ class ProjectState extends Model implements TranslatableContract
 
     protected $fillable = [];
 
+    protected $appends = ['translation'];
+
     public $translatedAttributes = ['title'];
+
+    public function setTranslationAttribute()
+    {
+        $translation = [];
+        foreach ($this->translations as $t) {
+            $translation[$t->locale] = $t;
+        }
+        return $translation;
+    }
 }

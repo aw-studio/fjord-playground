@@ -1,0 +1,57 @@
+@import url(https://fonts.googleapis.com/css2?family=Inter:wght@300;
+
+400;600&display=swap);/*
+$embed-responsive-aspect-ratios: join(
+    ((21 9), (16 9), (4 3), (1 1)),
+    $embed-responsive-aspect-ratios
+);
+*/
+body {
+  font-family: "Inter", sans-serif;
+}
+
+a,
+.nav-menu .drop-down ul a:hover,
+.nav-menu .drop-down ul .active > a,
+.nav-menu .drop-down ul li:hover > a,
+.nav-menu a:hover,
+.nav-menu .active > a,
+.nav-menu li:hover > a,
+#hero .btn-watch-video:hover i,
+.featured-services .icon i,
+.featured-services .icon-box:hover .title a,
+.about .content ul i,
+.counts .counters span,
+.services .icon-box .icon i,
+.services .icon-box:hover h4 a,
+.portfolio #portfolio-flters li:hover,
+.portfolio #portfolio-flters li.filter-active,
+.portfolio .portfolio-item .portfolio-info .preview-link:hover,
+.portfolio .portfolio-item .portfolio-info .details-link:hover,
+.team .member .social a:hover,
+.contact .info i {
+  color: #4951f2;
+}
+
+.back-to-top i,
+#hero .btn-get-started,
+.testimonials .owl-dot.active,
+.contact .info .social-links a:hover,
+.cta,
+.contact .info .email:hover i,
+.contact .info .address:hover i,
+.contact .info .phone:hover i,
+.contact .php-email-form button[type=submit],
+.portfolio-details .portfolio-details-carousel .owl-dot.active,
+#footer .footer-top .footer-newsletter form input[type=submit],
+#footer .footer-top .social-links a:hover {
+  background: #4951f2;
+}
+
+.contact .info,
+.contact .php-email-form,
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
+  border-color: #4951f2;
+}
+

@@ -3,11 +3,8 @@
 namespace FjordApp\Config\Form\Pages;
 
 use Fjord\Crud\CrudForm;
-use App\Models\Department;
 use Fjord\Crud\Config\FormConfig;
-use Fjord\Vue\Crud\RelationTable;
 use Fjord\Crud\Config\Traits\HasCrudForm;
-use Fjord\Crud\Fields\Blocks\Repeatables;
 use FjordApp\Controllers\Form\Pages\HomeController;
 
 class HomeConfig extends FormConfig
@@ -43,7 +40,7 @@ class HomeConfig extends FormConfig
     {
         $form->card(function ($form) {
 
-            $form->col(6, function ($form) {
+            $form->col(7, function ($form) {
                 $form->input('header')
                     ->translatable()
                     ->title('Header')
@@ -61,7 +58,7 @@ class HomeConfig extends FormConfig
                 ->title('Header Image')
                 ->maxFiles(1)
                 ->firstBig()
-                ->cols(6);
+                ->cols(5);
         })->cols(12)->title('Landing');
 
         $form->card(function ($form) {

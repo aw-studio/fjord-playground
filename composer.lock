@@ -77,7 +77,7 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/aw-studio/fjord.git",
-                "reference": "014e7e2c3a40fa2fbf7cd2c120b9bcfe7f744f68"
+                "reference": "201fc11884d798fdddae5e3dd6f1147f11b3df5f"
             },
             "require": {
                 "astrotomic/laravel-translatable": "^11.1|^11.8",
@@ -123,7 +123,7 @@
                 }
             ],
             "description": "Fjord: A Laravel CMS/Admin-Panel",
-            "time": "2020-05-14T20:17:41+00:00"
+            "time": "2020-05-15T10:56:17+00:00"
         },
         {
             "name": "aw-studio/fjord-permissions",

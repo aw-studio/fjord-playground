@@ -12,6 +12,8 @@ const mix = require("laravel-mix");
  |
  */
 
+mix.sass("resources/sass/app.scss", "css");
+
 mix.browserSync({
     proxy: "fjord-playground.aw",
     notify: false

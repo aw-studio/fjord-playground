@@ -77,7 +77,7 @@ return [
     |
     */
 
-    'default_route' => 'pages/home',
+    'default_route' => 'form/pages/home',
 
 
     /*

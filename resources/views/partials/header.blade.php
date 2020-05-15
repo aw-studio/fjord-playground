@@ -11,6 +11,7 @@
           <li><a href="/projects">Projects</a></li>
           <li><a href="#portfolio">Departments</a></li>
           <li class="{{ Request::is('team') ? 'active' : '' }}"><a href="/team">Team</a></li>
+          <li class="{{ Request::is('admin') ? 'active' : '' }}"><a href="/admin">Login</a></li>
         </ul>
       </nav><!-- .nav-menu -->
     </div>

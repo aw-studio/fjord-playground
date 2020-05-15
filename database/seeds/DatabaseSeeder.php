@@ -74,11 +74,10 @@ class DatabaseSeeder extends Seeder
 
         $this->command->info('Upload image to page home.');
 
-        $pages->home->addMedia(storage_path('dump/home-title/fjord.png'))
+        $pages->home->addMedia(storage_path('dump/home-title/Ford_Highlight.jpg'))
             ->preservingOriginal()
             ->withCustomProperties($properties)
             ->toMediaCollection('image');
-
 
         foreach ($pages->home->portfolio_images as $key => $block) {
             for ($i = 0; $i < 3; $i++) {

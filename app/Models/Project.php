@@ -21,7 +21,7 @@ class Project extends Model implements TranslatableContract
         'project_states_id',
     ];
 
-    public $translatedAttributes = ['title', 'description'];
+    public $translatedAttributes = ['title', 'description', 'slug'];
 
     /**
      * Relations

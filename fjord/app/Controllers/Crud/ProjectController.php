@@ -2,10 +2,13 @@
 
 namespace FjordApp\Controllers\Crud;
 
-use Illuminate\Database\Eloquent\Builder;
+use App\Models\Project;
 
+use App\Models\ProjectState;
 use Fjord\User\Models\FjordUser;
+use Illuminate\Database\Eloquent\Builder;
 use Fjord\Crud\Controllers\CrudController;
+use Fjord\Crud\Requests\CrudUpdateRequest;
 
 class ProjectController extends CrudController
 {
@@ -37,5 +40,14 @@ class ProjectController extends CrudController
     public function query(): Builder
     {
         return $this->model::query();
+    }
+
+    public function setProjectState(CrudUpdateRequest $request, Project $project)
+    {
+        $project->update([
+            'project_states_id' => ProjectState::findOrFail($request->state)->id
+        ]);
+
+        return response()->json('success', 200);
     }
 }

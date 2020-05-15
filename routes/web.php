@@ -14,4 +14,5 @@
 Route::get('/', 'HomeController')->name('home');
 Route::get('/team', 'EmployeeController@index')->name('team');
 Route::get('/projects', 'ProjectController@index')->name('projects');
+Route::get('/project/{slug}', 'ProjectController@show')->name('project');
 //Route::resource('departments', 'DepartmentController')->only(['index', 'show']);

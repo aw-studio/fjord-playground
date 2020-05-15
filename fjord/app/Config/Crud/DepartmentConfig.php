@@ -103,6 +103,7 @@ class DepartmentConfig extends CrudConfig
 
         $table->col('Employees')
             ->value('{employees_count}')
+            ->small()
             ->sortBy('employees_count');
     }
 

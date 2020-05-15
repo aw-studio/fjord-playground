@@ -28,6 +28,8 @@
 
     <link href="/css/all.min.css" rel="stylesheet">
 
+    <link href="/css/app.css" rel="stylesheet">
+
     <style type="text/css">
         main{
             padding-top: 81px;   

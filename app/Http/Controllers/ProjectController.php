@@ -15,4 +15,13 @@ class ProjectController extends Controller
             'projects' => $projects
         ]);
     }
+
+    public function show(Request $request, $slug)
+    {
+        $project = Project::whereTranslation('slug', $slug)->firstOrFail();
+
+        return view('pages.project', [
+            'project' => $project
+        ]);
+    }
 }

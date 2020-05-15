@@ -2,12 +2,13 @@
 
 namespace FjordApp\Config\Crud;
 
+use App\Models\Project;
 use Fjord\Crud\CrudForm;
+use App\Models\ProjectState;
 use Fjord\Vue\Crud\CrudTable;
+
 use Fjord\Crud\Config\CrudConfig;
 use Illuminate\Database\Eloquent\Builder;
-
-use App\Models\Project;
 use FjordApp\Controllers\Crud\ProjectController;
 
 class ProjectConfig extends CrudConfig
@@ -53,6 +54,11 @@ class ProjectConfig extends CrudConfig
         ];
     }
 
+    public function previewRoute($project)
+    {
+        return route('project', ['slug' => $project->slug]);
+    }
+
     /**
      * Sort by keys.
      *
@@ -76,7 +82,7 @@ class ProjectConfig extends CrudConfig
     {
         $query->with('manager');
         $query->with('status');
-        //$query->with('staff.department');
+        $query->with('staff.department');
 
         return $query;
     }
@@ -116,9 +122,19 @@ class ProjectConfig extends CrudConfig
             ->value('{manager.last_name}')
             ->sortBy('manager.last_name');
 
-        $table->component('project-completion')
+        $table->component('projects-state')
+            ->prop('states', ProjectState::all())
+            ->link(false)
+            ->label('Status');
+
+        $table->component('projects-completion')
             ->label('Days left')
             ->sortBy('completion_date')
+            ->small();
+
+        $table->component('projects-team')
+            ->label('Staff')
+            ->link(false)
             ->small();
     }
 
@@ -158,11 +174,8 @@ class ProjectConfig extends CrudConfig
 
         $form->relation('staff')
             ->title('Staff')
-            ->query(function ($staff) {
-                $staff->doesntHave('projects');
-            })
             ->preview(function ($table) {
-                $table->col('id');
+                $table->image('Image')->src('{image.conversion_urls.sm}')->square('50px')->small();
                 $table->col('Name')->value('{first_name} {last_name}');
             });
     }
