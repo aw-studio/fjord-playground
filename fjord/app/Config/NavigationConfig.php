@@ -57,6 +57,8 @@ class NavigationConfig extends Config
         ]);
 
         $nav->section([
+            $nav->title('Pages'),
+
             $nav->group([
                 'title' => 'Pages',
                 'icon' => '<i class="fas fa-file"></i>',

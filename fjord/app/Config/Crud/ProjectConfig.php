@@ -132,7 +132,7 @@ class ProjectConfig extends CrudConfig
     {
         $form->card(function ($form) {
             $this->mainCard($form);
-        })->cols(12)->title('Main');
+        })->cols(12);
     }
 
     /**
@@ -143,8 +143,27 @@ class ProjectConfig extends CrudConfig
      */
     protected function mainCard(CrudForm $form)
     {
-        $form->input('input')
-            ->title('Block input')
+        $form->input('title')
+            ->title('Title')
+            ->hint('The project\'s title')
             ->cols(6);
+
+        $form->select('employee_id')
+            ->title('Projectmanager')
+            ->options(\App\Models\Employee::projectManagement()->get()->mapWithKeys(function ($item, $key) {
+                return [$item->id => $item->fullName];
+            })->toArray())
+            ->hint('Select a Projectmanager')
+            ->cols(6);
+
+        $form->relation('staff')
+            ->title('Staff')
+            ->query(function ($staff) {
+                $staff->doesntHave('projects');
+            })
+            ->preview(function ($table) {
+                $table->col('id');
+                $table->col('Name')->value('{first_name} {last_name}');
+            });
     }
 }

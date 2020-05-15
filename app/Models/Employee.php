@@ -2,12 +2,13 @@
 
 namespace App\Models;
 
+use App\Models\Project;
 use Spatie\MediaLibrary\Models\Media;
-use Illuminate\Database\Eloquent\Model;
-
-use Fjord\Crud\Models\Traits\TrackEdits;
 
 use Fjord\Crud\Models\Traits\HasMedia;
+
+use Illuminate\Database\Eloquent\Model;
+use Fjord\Crud\Models\Traits\TrackEdits;
 use Spatie\MediaLibrary\HasMedia\HasMedia as HasMediaContract;
 
 class Employee extends Model implements HasMediaContract
@@ -26,33 +27,55 @@ class Employee extends Model implements HasMediaContract
         'fullName'
     ];
 
+    /**
+     * Department relation.
+     *
+     * @return belongsTo
+     */
     public function department()
     {
         return $this->belongsTo('App\Models\Department');
     }
+
+    /**
+     * Projects relation.
+     *
+     * @return void
+     */
     public function projects()
     {
-        return $this->belongsToMany('App\Models\Project', 'staff');
+        return $this->morphedByMany(
+            Project::class,
+            'model',
+            'staff',
+        );
     }
 
     /**
-     * Accessors
+     * Image attribute.
      *
-     *
+     * @return Media
      */
     public function getImageAttribute()
     {
         return $this->getMedia('image')->first();
     }
+
+    /**
+     * fullName attribute.
+     *
+     * @return string
+     */
     public function getFullNameAttribute()
     {
         return "{$this->last_name}, {$this->first_name} ";
     }
 
     /**
-     * Scopes
+     * Development scope.
      *
-     *
+     * @param Builder $query
+     * @return Builder
      */
     public function scopeDevelopment($query)
     {

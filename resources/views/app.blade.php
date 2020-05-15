@@ -28,6 +28,12 @@
 
     <link href="/css/all.min.css" rel="stylesheet">
 
+    <style type="text/css">
+        main{
+            padding-top: 81px;   
+        }
+    </style>
+
     <!-- =======================================================
     * Template Name: eNno - v2.0.0
     * Template URL: https://bootstrapmade.com/enno-free-simple-bootstrap-template/

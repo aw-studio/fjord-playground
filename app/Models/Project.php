@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\Employee;
 use App\Models\ProjectState;
-use Illuminate\Database\Eloquent\Model;
 
+use Illuminate\Database\Eloquent\Model;
 use Fjord\Crud\Models\Traits\TrackEdits;
 use Fjord\Crud\Models\Traits\Translatable;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
@@ -33,7 +34,11 @@ class Project extends Model implements TranslatableContract
     }
     public function staff()
     {
-        return $this->belongsToMany('App\Models\Employee', 'staff', 'project_id', 'employee_id');
+        return $this->morphToMany(
+            Employee::class,
+            'model',
+            'staff',
+        );
     }
     public function status()
     {

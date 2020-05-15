@@ -4,7 +4,9 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 use Fjord\User\Models\FjordUser;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class Install extends Command
 {
@@ -32,12 +34,15 @@ class Install extends Command
      */
     public function handle()
     {
-        $this->call('migrate:fresh', [
-            '--seed' => true,
-        ]);
+        File::cleanDirectory(storage_path('app/public'));
+        $this->line('Cleaned storage.');
+
+        $this->call('migrate:fresh');
 
         $this->call('fjord:install');
 
         $this->call('dump:load');
+
+        $this->call('db:seed');
     }
 }

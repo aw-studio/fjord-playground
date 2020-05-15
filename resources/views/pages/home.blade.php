@@ -7,15 +7,14 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>Elegant and creative solutions</h1>
-          <h2>We are team of talanted designers making websites with Bootstrap</h2>
-          <div class="d-flex">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
-            <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox btn-watch-video" data-vbtype="video" data-autoplay="true"> Watch Video <i class="icofont-play-alt-2"></i></a>
-          </div>
+          <h1>{{ $home->header }}</h1>
+          <h2>{{ $home->text }}</h2>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
-          <img src="/img/hero-img.png" class="img-fluid animated" alt="">
+          <img src="{{ $home->image->conversion_urls['lg'] }}" 
+            class="img-fluid animated" 
+            alt="{{ $home->image->alt }}" 
+            title="{{ $home->image->title }}">
         </div>
       </div>
     </div>
@@ -32,7 +31,7 @@
                         <div class="icon-box">
                           <div class="icon">{!! $card->icon !!}</div>
                           <h4 class="title"><a href="#">{{ $card->title }}</a></h4>
-                          <p class="description">{{ $card->title }}</p>
+                          <p class="description">{{ $card->text }}</p>
                         </div>
                       </div>
                     @endforeach
@@ -64,7 +63,7 @@
             @foreach($home->portfolio_images as $block)
                 @foreach($block->images as $id => $image) 
                 <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $block->name }}">
-                    <img src="{{ $image->conversion_urls['lg'] }}" class="img-fluid" alt="">
+                    <img src="{{ $image->conversion_urls['lg'] }}" class="img-fluid" alt="{{ $image->alt }}" title="{{ $image->title }}">
                     <div class="portfolio-info">
                       <h4>{{ $block->name }} {{ $id + 1 }}</h4>
                       <p>{{ $block->name }}</p>

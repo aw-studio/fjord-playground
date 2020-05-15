@@ -18,8 +18,7 @@ class CreateStaffTable extends Migration
 
             $table->unsignedBigInteger('model_id');
             $table->string('model_type');
-            $table->unsignedBigInteger('employee_id');
-            $table->foreign('employee_id')->references('id')->on('employees');
+            $table->unsignedBigInteger('employee_id')->references('id')->on('employees');
 
             $table->timestamps();
         });

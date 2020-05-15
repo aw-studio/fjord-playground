@@ -11,7 +11,7 @@ class EmployeeController extends Controller
     {
         $employees = Employee::all();
 
-        return view('pages.employees.index')->with([
+        return view('pages.team')->with([
             'employees' => $employees
         ]);
     }

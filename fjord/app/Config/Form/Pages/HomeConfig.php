@@ -28,6 +28,11 @@ class HomeConfig extends FormConfig
      */
     public $formName = 'home';
 
+    public function previewRoute()
+    {
+        return route('home');
+    }
+
     /**
      * Setup create and edit form.
      *
@@ -37,7 +42,27 @@ class HomeConfig extends FormConfig
     public function form(CrudForm $form)
     {
         $form->card(function ($form) {
-        })->cols(12);
+
+            $form->col(6, function ($form) {
+                $form->input('header')
+                    ->translatable()
+                    ->title('Header')
+                    ->hint('Big header.')
+                    ->cols(12);
+
+                $form->text('text')
+                    ->translatable()
+                    ->title('Text')
+                    ->hint('Text below header.')
+                    ->cols(12);
+            });
+
+            $form->image('image')
+                ->title('Header Image')
+                ->maxFiles(1)
+                ->firstBig()
+                ->cols(6);
+        })->cols(12)->title('Landing');
 
         $form->card(function ($form) {
             $form->blocks('cards')
@@ -78,7 +103,11 @@ class HomeConfig extends FormConfig
                 ->blockCols(12)
                 ->repeatables(function ($rep) {
                     $rep->add('category', function ($form, $preview) {
-                        $preview->col('Image');
+                        $preview->col('{name}')->small();
+
+                        $preview->image()
+                            ->src('{first_images.conversion_urls.sm}')
+                            ->square('50px');
 
                         $form->input('name')
                             ->translatable()

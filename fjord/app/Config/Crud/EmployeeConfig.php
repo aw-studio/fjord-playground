@@ -5,7 +5,6 @@ namespace FjordApp\Config\Crud;
 use Fjord\Crud\CrudForm;
 use Fjord\Vue\Crud\CrudTable;
 use Fjord\Crud\Config\CrudConfig;
-use Fjord\Crud\Fields\Blocks\Repeatables;
 use Illuminate\Database\Eloquent\Builder;
 
 use App\Models\Employee;
@@ -40,6 +39,8 @@ class EmployeeConfig extends CrudConfig
      * @var string
      */
     public $sortByDefault = 'id.desc';
+
+    public $perPage = 10;
 
     /**
      * Model singular and plural name.
@@ -136,8 +137,12 @@ class EmployeeConfig extends CrudConfig
     public function form(CrudForm $form)
     {
         $form->card(function ($form) {
-            $this->mainCard($form);
-        })->cols(12)->title('Main');
+            $this->settings($form);
+        })->cols(12);
+
+        $form->card(function ($form) {
+            $this->projects($form);
+        })->cols(12);
     }
 
     /**
@@ -146,10 +151,43 @@ class EmployeeConfig extends CrudConfig
      * @param \Fjord\Crud\CrudForm $form
      * @return void
      */
-    protected function mainCard(CrudForm $form)
+    protected function settings(CrudForm $form)
     {
-        $form->input('input')
-            ->title('Block input')
-            ->cols(6);
+        $form->image('image')
+            ->maxFiles(1)
+            ->firstBig()
+            ->title('Profile Image')
+            ->cols(4);
+
+        $form->col(8, function ($col) {
+            $col->input('first_name')
+                ->title('Firstname')
+                ->placeholder('Firstname');
+
+            $col->input('last_name')
+                ->title('Lastname')
+                ->placeholder('Lastname');
+
+            $col->input('email')
+                ->title('E-mail')
+                ->placeholder('E-mail')
+                ->hint('The employee\'s email-address');
+
+            $col->select('department_id')
+                ->title('Department')
+                ->options(\App\Models\Department::all()->mapWithKeys(function ($item, $key) {
+                    return [$item->id => $item->name];
+                })->toArray())
+                ->hint('Select Department');
+        });
+    }
+
+    public function projects($form)
+    {
+        $form->relation('projects')
+            ->title('Projects')
+            ->preview(function ($table) {
+                $table->col('Title')->value('{title}');
+            });
     }
 }
