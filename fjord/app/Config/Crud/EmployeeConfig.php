@@ -78,6 +78,7 @@ class EmployeeConfig extends CrudConfig
     {
         $query->with('department');
         $query->with('projects');
+        $query->withCount('projects');
 
         return $query;
     }
@@ -131,18 +132,16 @@ class EmployeeConfig extends CrudConfig
             ->sortBy('last_name');
 
         $table->col('Department')
-            ->value('{department.name}')
-            ->sortBy('department.name');
+            ->value('{department.name}');
 
         $table->component('employees-projects')
             ->value('{projects}')
             ->label('Projects')
-            ->sortBy('projects.title');
+            ->sortBy('projects_count');
 
         $table->component('employees-actions')
             ->value('{projects}')
-            ->label('Projects')
-            ->sortBy('projects.title')
+            ->label('')
             ->link(false)
             ->small();
     }

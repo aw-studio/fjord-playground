@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use Fjord\Support\Facades\Form;
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +25,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        View::share('settings', Form::load('collections', 'settings'));
     }
 }

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Fjord Playground - Index</title>
+    <title>{{ $settings->title }}</title>
     <meta content="" name="descriptison">
     <meta content="" name="keywords">
 
@@ -48,6 +48,8 @@
     @include('partials.header')
         
     @yield('content')
+
+    @include('partials.footer')
              
     <!-- Vendor JS Files -->
     <script src="/vendor/jquery/jquery.min.js"></script>

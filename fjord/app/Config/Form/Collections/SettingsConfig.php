@@ -25,6 +25,13 @@ class SettingsConfig extends FormConfig
      */
     public $formName = 'settings';
 
+    public function names()
+    {
+        return [
+            'singular' => 'Settings'
+        ];
+    }
+
     /**
      * Setup form.
      *
@@ -36,8 +43,33 @@ class SettingsConfig extends FormConfig
         $form->card(function ($form) {
             $form->input('title')
                 ->title('Title')
-                ->cols(12)
-                ->placeholder('Fjord');
+                ->cols(8)
+                ->placeholder('Title')
+                ->hint('Website title.');
+
+            $form->input('company')
+                ->title('Company')
+                ->cols(8)
+                ->placeholder('Company')
+                ->hint('Company name is displayed in the footer.');
+
+            $form->input('phone')
+                ->title('Phonenumber')
+                ->rules('regex:/(01)[0-9]{9}/')
+                ->cols(6)
+                ->hint('Phonenumber.');
+
+            $form->input('mobilephone')
+                ->title('Mobile phonenumber')
+                ->cols(6)
+                ->rules('regex:/(01)[0-9]{9}/')
+                ->hint('Mobile phonenumber.');
+
+            $form->textarea('address')
+                ->title('Adress')
+                ->cols(8)
+                ->placeholder('Adress')
+                ->hint('Company address.');
         });
     }
 }
