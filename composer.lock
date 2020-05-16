@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "dab1e4a06b7f9eeb6ea62e150f4be1df",
+    "content-hash": "726994747995c5cf67a45f39b63104ad",
     "packages": [
         {
             "name": "astrotomic/laravel-translatable",
@@ -73,14 +73,21 @@
         },
         {
             "name": "aw-studio/fjord",
-            "version": "dev-config-architecture",
+            "version": "v2.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aw-studio/fjord.git",
-                "reference": "dc42a39ddde82fc1dc1982e1dfcac0a84fdd9600"
+                "reference": "ec8ffe0642bbee3d4c7d73bd2256977aa2055939"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aw-studio/fjord/zipball/ec8ffe0642bbee3d4c7d73bd2256977aa2055939",
+                "reference": "ec8ffe0642bbee3d4c7d73bd2256977aa2055939",
+                "shasum": ""
             },
             "require": {
                 "astrotomic/laravel-translatable": "^11.1|^11.8",
+                "aw-studio/fjord-permissions": "^1.0",
                 "cviebrock/eloquent-sluggable": "^4.8|^6.0|^7.0",
                 "laravel/ui": "^2.0",
                 "mobiledetect/mobiledetectlib": "^2.8",
@@ -109,6 +116,7 @@
                     "Fjord\\": "src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -123,15 +131,21 @@
                 }
             ],
             "description": "Fjord: A Laravel CMS/Admin-Panel",
-            "time": "2020-05-15T14:24:16+00:00"
+            "time": "2020-05-16T01:27:30+00:00"
         },
         {
             "name": "aw-studio/fjord-permissions",
-            "version": "dev-master",
+            "version": "v1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aw-studio/fjord-permissions.git",
-                "reference": "006444297b8b297ba848d2f551cea6750a13e0bf"
+                "reference": "3ddc7f6c119217033d66391475644124ec937c49"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/aw-studio/fjord-permissions/zipball/3ddc7f6c119217033d66391475644124ec937c49",
+                "reference": "3ddc7f6c119217033d66391475644124ec937c49",
+                "shasum": ""
             },
             "require": {
                 "php": "^7.2"
@@ -150,6 +164,7 @@
                     "FjordPermissions\\": "src"
                 }
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -164,7 +179,7 @@
                 }
             ],
             "description": "Fjord: A Laravel CMS/Admin-Panel",
-            "time": "2020-05-06T16:52:57+00:00"
+            "time": "2020-05-15T15:05:46+00:00"
         },
         {
             "name": "brick/math",
@@ -6735,10 +6750,7 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "aw-studio/fjord": 20,
-        "aw-studio/fjord-permissions": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

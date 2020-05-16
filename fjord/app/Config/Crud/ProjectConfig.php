@@ -32,7 +32,7 @@ class ProjectConfig extends CrudConfig
      *
      * @var array
      */
-    public $search = ['title'];
+    public $search = ['title', 'manager.last_name'];
 
     /**
      * Index table sort by default.

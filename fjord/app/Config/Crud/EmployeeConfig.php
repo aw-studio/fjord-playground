@@ -31,7 +31,7 @@ class EmployeeConfig extends CrudConfig
      *
      * @var array
      */
-    public $search = ['title'];
+    public $search = ['first_name', 'last_name', 'email'];
 
     /**
      * Index table sort by default.

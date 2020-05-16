@@ -31,7 +31,7 @@ class DepartmentConfig extends CrudConfig
      *
      * @var array
      */
-    public $search = ['title'];
+    public $search = ['name'];
 
     /**
      * Index table sort by default.

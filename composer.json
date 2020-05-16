@@ -1,5 +1,5 @@
 {
-    "name": "laravel\/laravel",
+    "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
     "keywords": [
@@ -7,20 +7,10 @@
         "laravel"
     ],
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "git",
-            "url": "https:\/\/github.com\/aw-studio\/fjord.git"
-        },
-        {
-            "type": "git",
-            "url": "https:\/\/github.com\/aw-studio\/fjord-permissions.git"
-        }
-    ],
+    "repositories": [],
     "require": {
         "php": "^7.2",
-        "aw-studio/fjord": "dev-config-architecture",
-        "aw-studio/fjord-permissions": "dev-master",
+        "aw-studio/fjord": "^2.0",
         "dg/mysql-dump": "^1.5",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^7.0",
@@ -28,11 +18,11 @@
         "maatwebsite/excel": "^3.1"
     },
     "require-dev": {
-        "facade\/ignition": "^2.0",
-        "fzaninotto\/faker": "^1.9.1",
-        "mockery\/mockery": "^1.0",
-        "nunomaduro\/collision": "^4.1",
-        "phpunit\/phpunit": "^8.5"
+        "facade/ignition": "^2.0",
+        "fzaninotto/faker": "^1.9.1",
+        "mockery/mockery": "^1.0",
+        "nunomaduro/collision": "^4.1",
+        "phpunit/phpunit": "^8.5"
     },
     "config": {
         "optimize-autoloader": true,
@@ -46,17 +36,17 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app\/",
-            "FjordApp\\": "fjord\/app\/"
+            "App\\": "app/",
+            "FjordApp\\": "fjord/app/"
         },
         "classmap": [
-            "database\/seeds",
-            "database\/factories"
+            "database/seeds",
+            "database/factories"
         ]
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\": "tests\/"
+            "Tests\\": "tests/"
         }
     },
     "minimum-stability": "dev",
