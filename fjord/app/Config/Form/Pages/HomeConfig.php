@@ -4,6 +4,7 @@ namespace FjordApp\Config\Form\Pages;
 
 use Fjord\Crud\CrudForm;
 use Fjord\Crud\Config\FormConfig;
+use Illuminate\Support\Facades\File;
 use Fjord\Crud\Config\Traits\HasCrudForm;
 use FjordApp\Controllers\Form\Pages\HomeController;
 
@@ -38,14 +39,20 @@ class HomeConfig extends FormConfig
      */
     public function form(CrudForm $form)
     {
+        $form->info('Page Content')
+            ->text('Edit your page content and click on <b>preview</b> to see the results.')
+            ->text('The page content is flexible, the data structure is not static and can be changed at any time by adding new fields or removing fields. In the <a href="https://www.fjord-admin.com/docs/crud/forms/" target="_blank">Forms</a> section you can learn how to create forms easily.')
+            ->cols(12);
+
         $form->card(function ($form) {
 
             $form->col(7, function ($form) {
                 $form->input('header')
                     ->translatable()
                     ->title('Header')
-                    ->hint('Big header.')
-                    ->cols(12);
+                    ->hint('Big header.');
+
+                $form->markdown(File::get(__DIR__ . '/Header.md'));
 
                 $form->text('text')
                     ->translatable()
@@ -62,6 +69,12 @@ class HomeConfig extends FormConfig
         })->cols(12)->title('Landing');
 
         $form->card(function ($form) {
+            $form->info('Blocks')
+                ->text('Here is an example of <a href="https://www.fjord-admin.com/docs/fields/blocks" target="_blank">blocks</a>, with them you can add and sort form field groups.')
+                ->cols(12);
+
+
+
             $form->blocks('cards')
                 ->title('Cards')
                 ->blockCols(4)
@@ -80,6 +93,8 @@ class HomeConfig extends FormConfig
                             ->cols(12);
                     });
                 });
+
+            $form->markdown(File::get(__DIR__ . '/Blocks.md'));
         })->cols(12);
 
         $form->card(function ($form) {
