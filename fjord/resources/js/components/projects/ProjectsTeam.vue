@@ -1,6 +1,11 @@
 <template>
     <div class="d-inline-block">
-        <b-button @click="visible = true" size="sm" variant="outline-primary">
+        <b-button
+            @click="visible = true"
+            size="sm"
+            variant="outline-primary"
+            class="btn-square"
+        >
             <fa-icon icon="users" />
         </b-button>
         <b-badge variant="secondary">{{

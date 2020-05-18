@@ -7,8 +7,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 pt-5 pt-lg-0 order-2 order-lg-1 d-flex flex-column justify-content-center">
-          <h1>{{ $home->header }}</h1>
-          <h2>{{ $home->text }}</h2>
+          <h1 class="pb-3">{{ $home->header }}</h1>
+          <h2 class="pb-4">{{ $home->text }}</h2>
+          <a href="/admin" class="btn btn-primary">
+            Login to Fjord
+          </a>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
           <img src="{{ $home->image->conversion_urls['lg'] }}" 

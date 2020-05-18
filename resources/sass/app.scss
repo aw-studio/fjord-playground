@@ -7,12 +7,27 @@ body {
 }
 
 a,
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+div,
+b,
+small {
+    font-family: "Inter", sans-serif;
+}
+
+a,
 .nav-menu .drop-down ul a:hover,
-.nav-menu .drop-down ul .active > a,
-.nav-menu .drop-down ul li:hover > a,
+.nav-menu .drop-down ul .active>a,
+.nav-menu .drop-down ul li:hover>a,
 .nav-menu a:hover,
-.nav-menu .active > a,
-.nav-menu li:hover > a,
+.nav-menu .active>a,
+.nav-menu li:hover>a,
 #hero .btn-watch-video:hover i,
 .featured-services .icon i,
 .featured-services .icon-box:hover .title a,
@@ -51,4 +66,8 @@ a,
 .contact .php-email-form textarea:focus,
 .get-started-btn:hover {
     border-color: $primary;
+}
+
+.btn-primary {
+    background-color: $primary;
 }
