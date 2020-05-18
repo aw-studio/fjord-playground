@@ -73,16 +73,16 @@
         },
         {
             "name": "aw-studio/fjord",
-            "version": "v2.0.7",
+            "version": "v2.0.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aw-studio/fjord.git",
-                "reference": "577a7038ddb3f11538a649ca5c342cc1c8a31f4b"
+                "reference": "62e31c2b46653a4ecc91f90e0c73f3237c2c3d95"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aw-studio/fjord/zipball/577a7038ddb3f11538a649ca5c342cc1c8a31f4b",
-                "reference": "577a7038ddb3f11538a649ca5c342cc1c8a31f4b",
+                "url": "https://api.github.com/repos/aw-studio/fjord/zipball/62e31c2b46653a4ecc91f90e0c73f3237c2c3d95",
+                "reference": "62e31c2b46653a4ecc91f90e0c73f3237c2c3d95",
                 "shasum": ""
             },
             "require": {
@@ -131,7 +131,7 @@
                 }
             ],
             "description": "Fjord: A Laravel CMS/Admin-Panel",
-            "time": "2020-05-18T09:17:41+00:00"
+            "time": "2020-05-18T10:14:01+00:00"
         },
         {
             "name": "aw-studio/fjord-permissions",
