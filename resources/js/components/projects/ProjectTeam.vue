@@ -10,7 +10,7 @@
             <ul>
                 <li v-for="(employee, index) in item.attributes.staff">
                     <b-link
-                        :href="`/admin/employees/${employee.id}/edit`"
+                        :href="`/admin/crud/employees/${employee.id}/edit`"
                         :key="index"
                         >{{ employee.fullName }} ({{
                             employee.department.name
@@ -61,12 +61,12 @@
 
 <script>
 export default {
-    name: "ProjectTeam",
+    name: 'ProjectTeam',
     props: {
         item: {
             type: Object,
-            required: true
-        }
+            required: true,
+        },
     },
     data() {
         return {
@@ -74,15 +74,15 @@ export default {
             email: false,
             message: {
                 subject: null,
-                text: null
-            }
+                text: null,
+            },
         };
     },
     methods: {
         sendMail() {
             this.visible = false;
             this.email = true;
-        }
-    }
+        },
+    },
 };
 </script>
