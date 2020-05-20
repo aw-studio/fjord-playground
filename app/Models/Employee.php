@@ -9,7 +9,7 @@ use Fjord\Crud\Models\Traits\HasMedia;
 
 use Illuminate\Database\Eloquent\Model;
 use Fjord\Crud\Models\Traits\TrackEdits;
-use Spatie\MediaLibrary\HasMedia\HasMedia as HasMediaContract;
+use Spatie\MediaLibrary\HasMedia as HasMediaContract;
 
 class Employee extends Model implements HasMediaContract
 {
@@ -96,15 +96,5 @@ class Employee extends Model implements HasMediaContract
     public function scopeHumanResources($query)
     {
         return $query->where('department_id', 5);
-    }
-
-    public function registerMediaConversions(Media $media = null)
-    {
-        foreach (config('fjord.mediaconversions.default') as $key => $value) {
-            $this->addMediaConversion($key)
-                ->width($value[0])
-                ->height($value[1])
-                ->sharpen($value[2]);
-        }
     }
 }

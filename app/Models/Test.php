@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Fjord\Crud\Models\Traits\TrackEdits;
 use Spatie\MediaLibrary\Models\Media;
-use Spatie\MediaLibrary\HasMedia\HasMedia as HasMediaContract;
+use Spatie\MediaLibrary\HasMedia as HasMediaContract;
 use Fjord\Crud\Models\Traits\HasMedia;
 use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Fjord\Crud\Models\Traits\Translatable;
@@ -21,7 +21,7 @@ class Test extends Model implements HasMediaContract, TranslatableContract
      * Don't forget to also set them fillable in the coresponding translation-model!
      */
 
-    
+
     /**
      * Fillable attributes
      *
@@ -29,10 +29,10 @@ class Test extends Model implements HasMediaContract, TranslatableContract
      */
     protected $fillable = ['title', 'text'];
     public $translatedAttributes = ['title', 'text'];
-	protected $appends = ['image', 'translation'];
+    protected $appends = ['image', 'translation'];
     protected $with = ['media', 'translations'];
 
-    
+
 
     /**
      * Example image field.
@@ -44,22 +44,6 @@ class Test extends Model implements HasMediaContract, TranslatableContract
     }
 
     /**
-     * Register media conversions.
-     *
-     * @param Media $media
-     * @return void
-     */
-    public function registerMediaConversions(Media $media = null)
-    {
-        foreach (config('fjord.mediaconversions.default') as $key => $value) {
-            $this->addMediaConversion($key)
-                  ->width($value[0])
-                  ->height($value[1])
-                  ->sharpen($value[2]);
-        }
-    }
-
-    /**
      * Append the translation to each query.
      *
      * @return array
@@ -68,5 +52,4 @@ class Test extends Model implements HasMediaContract, TranslatableContract
     {
         return $this->getTranslationsArray();
     }
-
 }
