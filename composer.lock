@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c413751d74be1f81a7fc38a1181541d5",
+    "content-hash": "304ef0b784093714e9f3d6b4a55c654c",
     "packages": [
         {
             "name": "astrotomic/laravel-translatable",
@@ -73,16 +73,16 @@
         },
         {
             "name": "aw-studio/fjord",
-            "version": "v2.1.4",
+            "version": "v2.1.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aw-studio/fjord.git",
-                "reference": "5eae79d1130f58fb340f3734c1615919bb4de640"
+                "reference": "4c9aa3d91b4623fe1a566754da81e7c5fb7c81c4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aw-studio/fjord/zipball/5eae79d1130f58fb340f3734c1615919bb4de640",
-                "reference": "5eae79d1130f58fb340f3734c1615919bb4de640",
+                "url": "https://api.github.com/repos/aw-studio/fjord/zipball/4c9aa3d91b4623fe1a566754da81e7c5fb7c81c4",
+                "reference": "4c9aa3d91b4623fe1a566754da81e7c5fb7c81c4",
                 "shasum": ""
             },
             "require": {
@@ -135,7 +135,7 @@
                 }
             ],
             "description": "Fjord: A Laravel CMS/Admin-Panel",
-            "time": "2020-05-20T23:23:29+00:00"
+            "time": "2020-05-22T07:21:51+00:00"
         },
         {
             "name": "aw-studio/fjord-permissions",
