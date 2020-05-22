@@ -14,10 +14,12 @@
           </a>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img">
+          @if ($home->image)
           <img src="{{ $home->image->conversion_urls['lg'] }}" 
             class="img-fluid animated" 
             alt="{{ $home->image->alt }}" 
             title="{{ $home->image->title }}">
+          @endif
         </div>
       </div>
     </div>
