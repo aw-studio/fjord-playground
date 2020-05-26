@@ -149,6 +149,10 @@ class ProjectConfig extends CrudConfig
         $form->card(function ($form) {
             $this->mainCard($form);
         })->cols(12);
+
+        $form->card(function ($form) {
+            $this->staff($form);
+        })->cols(12);
     }
 
     /**
@@ -189,7 +193,10 @@ class ProjectConfig extends CrudConfig
             })->toArray())
             ->hint('Select a State')
             ->cols(4);
+    }
 
+    public function staff($form)
+    {
         $form->relation('staff')
             ->title('Staff')
             ->preview(function ($table) {
