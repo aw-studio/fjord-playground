@@ -15,7 +15,9 @@
         @foreach($employees as $employee)
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="member">
+              @if ($employee->image)
               <img src="{{ $employee->image->conversion_urls['md'] }}" alt="{{ $employee->image->alt }}" title="{{ $employee->image->title }}">
+              @endif
               <h4>{{ $employee->first_name }} {{ $employee->last_name }}</h4>
               <span>{{  $employee->department->name }}</span>
               <div class="social">
