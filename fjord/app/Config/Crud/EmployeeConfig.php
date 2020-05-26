@@ -195,7 +195,6 @@ class EmployeeConfig extends CrudConfig
                 ->hint('The employee\'s email-address');
 
             $col->select('department_id')
-                ->creationRules('required')
                 ->title('Department')
                 ->options(\App\Models\Department::all()->mapWithKeys(function ($item, $key) {
                     return [$item->id => $item->name];
