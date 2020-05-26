@@ -179,19 +179,23 @@ class EmployeeConfig extends CrudConfig
 
         $form->col(8, function ($col) {
             $col->input('first_name')
+                ->creationRules('required')
                 ->title('Firstname')
                 ->placeholder('Firstname');
 
             $col->input('last_name')
+                ->creationRules('required')
                 ->title('Lastname')
                 ->placeholder('Lastname');
 
             $col->input('email')
+                ->creationRules('required')
                 ->title('E-mail')
                 ->placeholder('E-mail')
                 ->hint('The employee\'s email-address');
 
             $col->select('department_id')
+                ->creationRules('required')
                 ->title('Department')
                 ->options(\App\Models\Department::all()->mapWithKeys(function ($item, $key) {
                     return [$item->id => $item->name];

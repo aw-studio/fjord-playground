@@ -172,6 +172,24 @@ class ProjectConfig extends CrudConfig
             ->hint('Select a Projectmanager')
             ->cols(6);
 
+        $form->dt('completion_date')
+            ->title('Completion Date')
+            ->cols(4);
+
+        $form->input('budget')
+            ->type('number')
+            ->prepend('$')
+            ->title('Budget')
+            ->cols(4);
+
+        $form->select('project_states_id')
+            ->title('State')
+            ->options(\App\Models\ProjectState::all()->mapWithKeys(function ($item, $key) {
+                return [$item->id => $item->title];
+            })->toArray())
+            ->hint('Select a State')
+            ->cols(4);
+
         $form->relation('staff')
             ->title('Staff')
             ->preview(function ($table) {
