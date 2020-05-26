@@ -57,7 +57,7 @@ class NavigationConfig extends Config
         ]);
 
         $nav->section([
-            $nav->title('Pages'),
+            $nav->title('Forms'),
 
             $nav->group([
                 'title' => 'Pages',

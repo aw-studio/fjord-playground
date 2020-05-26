@@ -118,6 +118,10 @@ class DepartmentConfig extends CrudConfig
         $form->card(function ($form) {
             $this->mainCard($form);
         })->cols(12);
+
+        $form->card(function ($form) {
+            $this->staff($form);
+        })->cols(12);
     }
 
     /**
@@ -133,5 +137,18 @@ class DepartmentConfig extends CrudConfig
             ->placeholder('Department Name')
             ->hint('The department\'s name')
             ->cols(8);
+    }
+
+    public function staff($form)
+    {
+        $form->relation('employees')
+            ->title('Staff')
+            ->preview(function ($table) {
+                $table->image('Image')
+                    ->src('{image.conversion_urls.sm}')
+                    ->square('50px')
+                    ->small();
+                $table->col('Name')->value('{fullName}');
+            });
     }
 }

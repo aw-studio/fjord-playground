@@ -39,7 +39,7 @@ class ProfileSettingsConfig
             strip_slashes($this->routePrefix())
         );
 
-        $form->info(ucwords(__f('base.general')))->cols(4);
+        $form->info(ucwords(__f('base.general')))->cols(12);
 
         $form->card(function ($form) {
 
@@ -69,17 +69,17 @@ class ProfileSettingsConfig
             $form->input('username')
                 ->cols(6)
                 ->title(ucwords(__f('base.username')));
-        })->cols(8)->class('mb-5');
+        })->cols(12)->class('mb-5');
 
         if (config('fjord.translatable.translatable')) {
-            $form->info(ucwords(__f('base.language')))->cols(4)
+            $form->info(ucwords(__f('base.language')))->cols(12)
                 ->text(__f('profile.messages.language'));
             $form->card(function ($form) {
                 $form->component('fj-locales')->class('mb-4');
-            })->cols(8)->class('mb-5');
+            })->cols(12)->class('mb-5');
         }
 
-        $form->info(ucwords(__f('base.security')))->cols(4);
+        $form->info(ucwords(__f('base.security')))->cols(12);
 
         $form->card(function ($form) {
             $form->modal('change_password')
@@ -106,6 +106,6 @@ class ProfileSettingsConfig
                 });
 
             $form->component('fj-profile-security');
-        })->cols(8);
+        })->cols(12);
     }
 }
