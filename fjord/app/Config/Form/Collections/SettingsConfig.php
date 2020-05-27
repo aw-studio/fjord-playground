@@ -43,37 +43,37 @@ class SettingsConfig extends FormConfig
         $form->info('Site Settings')
             ->text('Settings are a good example of <b>Forms</b>. The data structure is flexible and the field data can be loaded globally.')
             ->text('Learn how to create forms in the <a href="https://www.fjord-admin.com/docs/crud/forms/" target="_blank">Forms</a> section in the documentation.')
-            ->cols(4);
+            ->width(4);
         $form->card(function ($form) {
             $form->input('title')
                 ->title('Title')
-                ->cols(8)
+                ->width(8)
                 ->placeholder('Title')
                 ->hint('Website title.');
 
             $form->input('company')
                 ->title('Company')
-                ->cols(8)
+                ->width(8)
                 ->placeholder('Company')
                 ->hint('Company name is displayed in the footer.');
 
             $form->input('phone')
                 ->title('Phonenumber')
                 ->rules('regex:/(01)[0-9]{9}/')
-                ->cols(6)
+                ->width(6)
                 ->hint('Phonenumber.');
 
             $form->input('mobilephone')
                 ->title('Mobile phonenumber')
-                ->cols(6)
+                ->width(6)
                 ->rules('regex:/(01)[0-9]{9}/')
                 ->hint('Mobile phonenumber.');
 
             $form->textarea('address')
                 ->title('Adress')
-                ->cols(8)
+                ->width(8)
                 ->placeholder('Adress')
                 ->hint('Company address.');
-        })->cols(8);
+        })->width(8);
     }
 }

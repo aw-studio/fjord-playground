@@ -148,11 +148,11 @@ class ProjectConfig extends CrudConfig
     {
         $form->card(function ($form) {
             $this->mainCard($form);
-        })->cols(12);
+        })->width(12);
 
         $form->card(function ($form) {
             $this->staff($form);
-        })->cols(12);
+        })->width(12);
     }
 
     /**
@@ -165,8 +165,9 @@ class ProjectConfig extends CrudConfig
     {
         $form->input('title')
             ->title('Title')
+            ->rules('max:60')
             ->hint('The project\'s title')
-            ->cols(6);
+            ->width(6);
 
         $form->select('employee_id')
             ->title('Projectmanager')
@@ -174,17 +175,17 @@ class ProjectConfig extends CrudConfig
                 return [$item->id => $item->fullName];
             })->toArray())
             ->hint('Select a Projectmanager')
-            ->cols(6);
+            ->width(6);
 
         $form->dt('completion_date')
             ->title('Completion Date')
-            ->cols(4);
+            ->width(4);
 
         $form->input('budget')
             ->type('number')
             ->prepend('$')
             ->title('Budget')
-            ->cols(4);
+            ->width(4);
 
         $form->select('project_states_id')
             ->title('State')
@@ -192,13 +193,14 @@ class ProjectConfig extends CrudConfig
                 return [$item->id => $item->title];
             })->toArray())
             ->hint('Select a State')
-            ->cols(4);
+            ->width(4);
     }
 
     public function staff($form)
     {
         $form->relation('staff')
             ->title('Staff')
+            ->showTableHead()
             ->preview(function ($table) {
                 $table->image('Image')->src('{image.conversion_urls.sm}')->square('50px')->small();
                 $table->col('Name')->value('{first_name} {last_name}');

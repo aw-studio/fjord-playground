@@ -2,12 +2,13 @@
 
 namespace FjordApp\Config\Crud;
 
+use App\Models\Employee;
 use Fjord\Crud\CrudForm;
 use Fjord\Vue\Crud\CrudTable;
 use Fjord\Crud\Config\CrudConfig;
-use Illuminate\Database\Eloquent\Builder;
 
-use App\Models\Employee;
+use Illuminate\Support\Facades\File;
+use Illuminate\Database\Eloquent\Builder;
 use FjordApp\Controllers\Crud\EmployeeController;
 
 class EmployeeConfig extends CrudConfig
@@ -156,11 +157,11 @@ class EmployeeConfig extends CrudConfig
     {
         $form->card(function ($form) {
             $this->settings($form);
-        })->cols(12);
+        })->width(12);
 
         $form->card(function ($form) {
             $this->projects($form);
-        })->cols(12);
+        })->width(12);
     }
 
     /**
@@ -171,42 +172,51 @@ class EmployeeConfig extends CrudConfig
      */
     protected function settings(CrudForm $form)
     {
-        $form->image('image')
-            ->maxFiles(1)
-            ->firstBig()
-            ->title('Profile Image')
-            ->cols(4);
+        $form->group(function ($form) {
+            $form->image('image')
+                ->maxFiles(1)
+                ->firstBig()
+                ->crop(1 / 1)
+                ->title('Profile Image');
 
-        $form->col(8, function ($col) {
-            $col->input('first_name')
+            $form->markdown(File::get(__DIR__ . '/Image.md'));
+        })->width(4);
+
+
+        $form->group(function ($form) {
+            $form->input('first_name')
+                ->rules('max:60')
                 ->creationRules('required')
                 ->title('Firstname')
                 ->placeholder('Firstname');
 
-            $col->input('last_name')
+            $form->input('last_name')
+                ->rules('max:60')
                 ->creationRules('required')
                 ->title('Lastname')
                 ->placeholder('Lastname');
 
-            $col->input('email')
+            $form->input('email')
                 ->creationRules('required')
+                ->rules('max:60', 'email:rfc,dns')
                 ->title('E-mail')
                 ->placeholder('E-mail')
                 ->hint('The employee\'s email-address');
 
-            $col->select('department_id')
+            $form->select('department_id')
                 ->title('Department')
                 ->options(\App\Models\Department::all()->mapWithKeys(function ($item, $key) {
                     return [$item->id => $item->name];
                 })->toArray())
                 ->hint('Select Department');
-        });
+        })->width(8);
     }
 
     public function projects($form)
     {
         $form->relation('projects')
             ->title('Projects')
+            ->showTableHead()
             ->preview(function ($table) {
                 $table->col('Title')->value('{title}');
             });
