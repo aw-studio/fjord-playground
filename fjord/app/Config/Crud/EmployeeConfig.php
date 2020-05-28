@@ -179,7 +179,7 @@ class EmployeeConfig extends CrudConfig
                 ->crop(1 / 1)
                 ->title('Profile Image');
 
-            $form->markdown(File::get(__DIR__ . '/Image.md'));
+            //$form->markdown(File::get(__DIR__ . '/Image.md'));
         })->width(4);
 
 

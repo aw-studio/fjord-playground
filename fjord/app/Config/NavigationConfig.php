@@ -28,7 +28,7 @@ class NavigationConfig extends Config
 
         $nav->section([
             $nav->preset('collections.settings', [
-                'title' => __f('fj.settings'),
+                //'title' => __f('fj.settings'),
                 'icon' => fa('cog')
             ])
         ]);

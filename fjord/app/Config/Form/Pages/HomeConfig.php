@@ -39,10 +39,12 @@ class HomeConfig extends FormConfig
      */
     public function form(CrudForm $form)
     {
+        /*
         $form->info('Page Content')
             ->text('Edit your page content and click on <b>preview</b> to see the results.')
             ->text('The page content is flexible, the data structure is not static and can be changed at any time by adding new fields or removing fields. In the <a href="https://www.fjord-admin.com/docs/crud/forms/" target="_blank">Forms</a> section you can learn how to create forms easily.')
             ->width(12);
+            */
 
         $form->card(function ($form) {
 
@@ -52,7 +54,7 @@ class HomeConfig extends FormConfig
                     ->title('Header')
                     ->hint('Big header.');
 
-                $form->markdown(File::get(__DIR__ . '/Header.md'));
+                //$form->markdown(File::get(__DIR__ . '/Header.md'));
 
                 $form->text('text')
                     ->translatable()
@@ -69,9 +71,12 @@ class HomeConfig extends FormConfig
         })->width(12)->title('Landing');
 
         $form->card(function ($form) {
+
+            /*
             $form->info('Blocks')
                 ->text('Here is an example of <a href="https://www.fjord-admin.com/docs/fields/blocks" target="_blank">blocks</a>, with them you can add and sort form field groups.')
                 ->width(12);
+                */
 
 
 
@@ -94,7 +99,7 @@ class HomeConfig extends FormConfig
                     });
                 });
 
-            $form->markdown(File::get(__DIR__ . '/Blocks.md'));
+            //$form->markdown(File::get(__DIR__ . '/Blocks.md'));
         })->width(12);
 
         $form->card(function ($form) {

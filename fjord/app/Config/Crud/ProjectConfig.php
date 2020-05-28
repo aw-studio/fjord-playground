@@ -183,6 +183,7 @@ class ProjectConfig extends CrudConfig
 
         $form->input('budget')
             ->type('number')
+            ->creationRules('required')
             ->prepend('$')
             ->title('Budget')
             ->width(4);
