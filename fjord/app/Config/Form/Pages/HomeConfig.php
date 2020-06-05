@@ -43,11 +43,6 @@ class HomeConfig extends FormConfig
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Form/Pages/HomeConfig.php" target="_blank">See the code for this page on github.</a>')
             ->width(12);
 
-        $form->info('Page Content')
-            ->text('Edit your page content and click on <b>preview</b> to see the results.')
-            ->text('The page content is flexible, the data structure is not static and can be changed at any time by adding new fields or removing fields. In the <a href="https://www.fjord-admin.com/docs/crud/forms/" target="_blank">Forms</a> section you can learn how to create forms easily.')
-            ->width(12);
-
         $form->card(function ($form) {
 
             $form->group(function ($form) {
