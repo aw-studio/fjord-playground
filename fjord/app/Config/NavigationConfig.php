@@ -43,6 +43,27 @@ class NavigationConfig extends Config
     public function main(Navigation $nav)
     {
         $nav->section([
+            $nav->title('Forms'),
+
+            $nav->group([
+                'title' => 'Pages',
+                'icon' => '<i class="fas fa-file"></i>',
+            ], [
+                $nav->preset('pages.home', [
+                    'icon' => '<i class="fas fa-home">'
+                ]),
+            ])
+        ]);
+
+        $nav->section([
+            $nav->title('Fjord'),
+
+            $nav->preset('crud.developers', [
+                'icon' => fa('users')
+            ]),
+        ]);
+
+        $nav->section([
             $nav->title('Models'),
 
             $nav->preset('crud.employees', [
@@ -54,19 +75,6 @@ class NavigationConfig extends Config
             $nav->preset('crud.projects', [
                 'icon' => fa('project-diagram')
             ]),
-        ]);
-
-        $nav->section([
-            $nav->title('Forms'),
-
-            $nav->group([
-                'title' => 'Pages',
-                'icon' => '<i class="fas fa-file"></i>',
-            ], [
-                $nav->preset('pages.home', [
-                    'icon' => '<i class="fas fa-home">'
-                ]),
-            ])
         ]);
     }
 }

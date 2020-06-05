@@ -116,6 +116,16 @@ class EmployeeConfig extends CrudConfig
     }
 
     /**
+     * Route prefix.
+     *
+     * @return string
+     */
+    public function routePrefix()
+    {
+        return 'stargazers';
+    }
+
+    /**
      * Build index table.
      *
      * @param \Fjord\Vue\Crud\CrudTable $table
@@ -155,6 +165,10 @@ class EmployeeConfig extends CrudConfig
      */
     public function form(CrudForm $form)
     {
+        $form->info('')
+            ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Crud/EmployeeConfig.php" target="_blank">See the code for this page on github.</a>')
+            ->width(12);
+
         $form->card(function ($form) {
             $this->settings($form);
         })->width(12);

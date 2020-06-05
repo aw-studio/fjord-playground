@@ -2,6 +2,7 @@
 
 use App\Models\Project;
 use App\Models\Employee;
+use App\Models\Developer;
 use App\Models\ProjectState;
 use Faker\Generator as Faker;
 use Fjord\Support\Facades\Form;
@@ -9,7 +10,6 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
-use AwStudio\Fjord\Form\Database\FormBlock;
 
 class DatabaseSeeder extends Seeder
 {
@@ -21,6 +21,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->permissions();
+
+        $this->developers();
         $this->fillPagesWithContent();
 
         $departments = ['Development', 'Marketing', 'Project-Management', 'Sales', 'Human-Resources'];
@@ -60,6 +62,52 @@ class DatabaseSeeder extends Seeder
 
         $adminRole->revokePermissionTo('update fjord-role-permissions');
         $adminRole->revokePermissionTo('delete fjord-users');
+
+        $adminRole->revokePermissionTo('create developers');
+        $adminRole->revokePermissionTo('update developers');
+        $adminRole->revokePermissionTo('delete developers');
+    }
+
+    public function developers()
+    {
+        $developers = [
+            [
+                'name' => 'Uwe',
+                'task' => 'Design',
+                'twitter' => 'https://twitter.com/uwesteff',
+                'image' => 'dump/developers/uwe.jpg'
+            ],
+            [
+                'name' => 'Jannes',
+                'task' => 'Development',
+                'twitter' => 'https://twitter.com/jannesb4',
+                'image' => 'dump/developers/jannes.jpeg'
+            ],
+            [
+                'name' => 'Lennart',
+                'task' => 'Development',
+                'twitter' => 'https://twitter.com/lennartcb',
+                'image' => 'dump/developers/lennart.jpeg'
+            ],
+        ];
+
+        foreach ($developers as $developer) {
+            $image = $developer['image'] ?? null;
+            unset($developer['image']);
+            $dev = Developer::create($developer);
+
+            $properties = [
+                'title' => null,
+                'alt' => null,
+            ];
+
+            if ($image) {
+                $dev->addMedia(storage_path($image))
+                    ->preservingOriginal()
+                    ->withCustomProperties($properties)
+                    ->toMediaCollection('image');
+            }
+        }
     }
 
     public function fillPagesWithContent()

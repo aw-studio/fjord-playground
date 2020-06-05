@@ -40,6 +40,10 @@ class SettingsConfig extends FormConfig
      */
     public function form(CrudForm $form)
     {
+        $form->info('')
+            ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Form/Collections/SettingsConfig.php" target="_blank">See the code for this page on github.</a>')
+            ->width(12);
+
         $form->info('Site Settings')
             ->text('Settings are a good example of <b>Forms</b>. The data structure is flexible and the field data can be loaded globally.')
             ->text('Learn how to create forms in the <a href="https://www.fjord-admin.com/docs/crud/forms/" target="_blank">Forms</a> section in the documentation.')

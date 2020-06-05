@@ -39,6 +39,10 @@ class HomeConfig extends FormConfig
      */
     public function form(CrudForm $form)
     {
+        $form->info('')
+            ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Form/Pages/HomeConfig.php" target="_blank">See the code for this page on github.</a>')
+            ->width(12);
+
         $form->info('Page Content')
             ->text('Edit your page content and click on <b>preview</b> to see the results.')
             ->text('The page content is flexible, the data structure is not static and can be changed at any time by adding new fields or removing fields. In the <a href="https://www.fjord-admin.com/docs/crud/forms/" target="_blank">Forms</a> section you can learn how to create forms easily.')
@@ -73,8 +77,6 @@ class HomeConfig extends FormConfig
                 ->text('Here is an example of <a href="https://www.fjord-admin.com/docs/fields/blocks" target="_blank">blocks</a>, with them you can add and sort form field groups.')
                 ->width(12);
 
-
-
             $form->blocks('cards')
                 ->title('Cards')
                 ->blockWidth(1 / 3)
@@ -94,7 +96,7 @@ class HomeConfig extends FormConfig
                     });
                 });
 
-            $form->markdown(File::get(__DIR__ . '/Blocks.md'));
+            //$form->markdown(File::get(__DIR__ . '/Blocks.md'));
         })->width(12);
 
         $form->card(function ($form) {

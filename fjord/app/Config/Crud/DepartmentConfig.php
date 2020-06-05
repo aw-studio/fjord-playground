@@ -90,6 +90,16 @@ class DepartmentConfig extends CrudConfig
     }
 
     /**
+     * Route prefix.
+     *
+     * @return string
+     */
+    public function routePrefix()
+    {
+        return 'departments';
+    }
+
+    /**
      * Build index table.
      *
      * @param \Fjord\Vue\Crud\CrudTable $table
@@ -115,6 +125,10 @@ class DepartmentConfig extends CrudConfig
      */
     public function form(CrudForm $form)
     {
+        $form->info('')
+            ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Crud/DepartmentConfig.php" target="_blank">See the code for this page on github.</a>')
+            ->width(12);
+
         $form->card(function ($form) {
             $this->mainCard($form);
         })->width(12);

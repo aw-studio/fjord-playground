@@ -88,6 +88,16 @@ class ProjectConfig extends CrudConfig
     }
 
     /**
+     * Route prefix.
+     *
+     * @return string
+     */
+    public function routePrefix()
+    {
+        return 'projects';
+    }
+
+    /**
      * Index table filter groups.
      *
      * @return array
@@ -146,6 +156,10 @@ class ProjectConfig extends CrudConfig
      */
     public function form(CrudForm $form)
     {
+        $form->info('')
+            ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Crud/ProjectConfig.php" target="_blank">See the code for this page on github.</a>')
+            ->width(12);
+
         $form->card(function ($form) {
             $this->mainCard($form);
         })->width(12);
