@@ -56,14 +56,6 @@ class NavigationConfig extends Config
         ]);
 
         $nav->section([
-            $nav->title('Fjord'),
-
-            $nav->preset('crud.developers', [
-                'icon' => fa('users')
-            ]),
-        ]);
-
-        $nav->section([
             $nav->title('Models'),
 
             $nav->preset('crud.employees', [
@@ -139,6 +131,14 @@ class NavigationConfig extends Config
                 ]),
 
             ])
+        ]);
+
+        $nav->section([
+            $nav->title('Fjord'),
+
+            $nav->preset('crud.developers', [
+                'icon' => fa('users')
+            ]),
         ]);
     }
 }
