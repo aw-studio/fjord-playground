@@ -3,7 +3,7 @@
 namespace FjordApp\Config\Form\Relations;
 
 use App\Models\Employee;
-use Fjord\Crud\CrudForm;
+use Fjord\Crud\CrudShow;
 use Fjord\Crud\Config\FormConfig;
 use FjordApp\Controllers\Form\Relations\OneRelationController;
 
@@ -18,11 +18,14 @@ class OneRelationConfig extends FormConfig
     public $controller = OneRelationController::class;
 
     /**
-     * Form name, is used for routing.
+     * Form route prefix.
      *
-     * @var string
+     * @return string
      */
-    public $formName = 'one_relation';
+    public function routePrefix()
+    {
+        return 'fields/one-relation';
+    }
 
     /**
      * Form singular name. This name will be displayed in the navigation.
@@ -32,17 +35,17 @@ class OneRelationConfig extends FormConfig
     public function names()
     {
         return [
-            'singular' => 'oneRelation',
+            'singular' => 'oneRelation <span class="badge badge-success">New</span>',
         ];
     }
 
     /**
      * Setup create and edit form.
      *
-     * @param \Fjord\Crud\CrudForm $form
+     * @param \Fjord\Crud\CrudShow $form
      * @return void
      */
-    public function form(CrudForm $form)
+    public function show(CrudShow $form)
     {
         $form->info('')
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Form/Relations/OneRelationConfig.php" target="_blank">See the code for this page on github.</a>')
@@ -54,12 +57,20 @@ class OneRelationConfig extends FormConfig
             ->width(12);
 
         $form->card(function ($form) {
-
             $form->oneRelation('employee')
-                ->title('Employee')
+                ->title('Relation displayed as table')
                 ->model(Employee::class)
                 ->preview(function ($table) {
                     $table->col('{first_name} {last_name}');
+                });
+
+            $form->oneRelation('names_department')
+                ->title('Relation displayed as link <span class="badge badge-success">New</span>')
+                ->type('link')
+                ->linkValue('{first_name} {last_name}')
+                ->model(Employee::class)
+                ->preview(function ($table) {
+                    $table->col('Name')->value('{first_name} {last_name}');
                 });
         });
     }

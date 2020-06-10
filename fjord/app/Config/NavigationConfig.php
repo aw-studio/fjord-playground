@@ -22,12 +22,14 @@ class NavigationConfig extends Config
         $nav->section([
             $nav->title(__f('fj.user_administration')),
 
-            $nav->preset('users'),
+            $nav->preset('user.user', [
+                'icon' => fa('users')
+            ]),
             $nav->preset('permissions')
         ]);
 
         $nav->section([
-            $nav->preset('collections.settings', [
+            $nav->preset('form.collections.settings', [
                 'title' => __f('fj.settings'),
                 'icon' => fa('cog')
             ])
@@ -46,60 +48,60 @@ class NavigationConfig extends Config
             $nav->title('Fields'),
 
             $nav->group([
-                'title' => 'Fields',
+                'title' => 'Fields <span class="badge badge-success">New</span>',
                 'icon' => fa('th'),
             ], [
-                $nav->preset('fields.block', [
+                $nav->preset('form.fields.block', [
                     'icon' => fa('th-large')
                 ]),
-                $nav->preset('fields.boolean', [
+                $nav->preset('form.fields.boolean', [
                     'icon' => fa('toggle-on')
                 ]),
-                $nav->preset('fields.checkboxes', [
+                $nav->preset('form.fields.checkboxes', [
                     'icon' => fa('check-square')
                 ]),
-                $nav->preset('fields.code', [
+                $nav->preset('form.fields.code', [
                     'icon' => fa('code')
                 ]),
-                $nav->preset('fields.datetime', [
+                $nav->preset('form.fields.datetime', [
                     'icon' => fa('calendar-alt')
                 ]),
-                $nav->preset('fields.icon', [
+                $nav->preset('form.fields.icon', [
                     'icon' => fa('grip-horizontal')
                 ]),
-                $nav->preset('fields.image', [
+                $nav->preset('form.fields.image', [
                     'icon' => fa('image')
                 ]),
-                $nav->preset('fields.input', [
+                $nav->preset('form.fields.input', [
                     'icon' => fa('font')
                 ]),
-                $nav->preset('fields.modal', [
+                $nav->preset('form.fields.modal', [
                     'icon' => fa('window-maximize')
                 ]),
-                $nav->preset('fields.password', [
+                $nav->preset('form.fields.password', [
                     'icon' => fa('key')
                 ]),
-                $nav->preset('fields.range', [
+                $nav->preset('form.fields.range', [
                     'icon' => fa('sliders-h')
                 ]),
-                $nav->preset('fields.select', [
+                $nav->preset('form.fields.select', [
                     'icon' => fa('bars')
                 ]),
-                $nav->preset('fields.textarea', [
+                $nav->preset('form.fields.textarea', [
                     'icon' => fa('heading')
                 ]),
-                $nav->preset('fields.wysiwyg', [
+                $nav->preset('form.fields.wysiwyg', [
                     'icon' => fa('file-word')
                 ]),
             ]),
             $nav->group([
-                'title' => 'Relations',
+                'title' => 'Relations <span class="badge badge-success">New</span>',
                 'icon' => fa('list'),
             ], [
-                $nav->preset('relations.one_relation', [
+                $nav->preset('form.relations.one_relation', [
                     'icon' => fa('square')
                 ]),
-                $nav->preset('relations.many_relation', [
+                $nav->preset('form.relations.many_relation', [
                     'icon' => fa('clone')
                 ]),
 
@@ -113,22 +115,20 @@ class NavigationConfig extends Config
                 'title' => 'Pages',
                 'icon' => '<i class="fas fa-file"></i>',
             ], [
-                $nav->preset('pages.home', [
+                $nav->preset('form.pages.home', [
                     'icon' => '<i class="fas fa-home">'
                 ]),
-            ])
-        ]);
+            ]),
 
-        $nav->section([
             $nav->title('Models'),
 
-            $nav->preset('crud.employees', [
+            $nav->preset('crud.employee', [
                 'icon' => fa('users')
             ]),
-            $nav->preset('crud.departments', [
+            $nav->preset('crud.department', [
                 'icon' => fa('building')
             ]),
-            $nav->preset('crud.projects', [
+            $nav->preset('crud.project', [
                 'icon' => fa('project-diagram')
             ]),
         ]);
@@ -136,7 +136,7 @@ class NavigationConfig extends Config
         $nav->section([
             $nav->title('Fjord'),
 
-            $nav->preset('crud.developers', [
+            $nav->preset('crud.developer', [
                 'icon' => fa('users')
             ]),
         ]);

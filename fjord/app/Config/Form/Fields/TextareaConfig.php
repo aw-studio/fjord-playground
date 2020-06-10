@@ -2,7 +2,7 @@
 
 namespace FjordApp\Config\Form\Fields;
 
-use Fjord\Crud\CrudForm;
+use Fjord\Crud\CrudShow;
 use Fjord\Crud\Config\FormConfig;
 use FjordApp\Controllers\Form\Fields\TextareaController;
 
@@ -17,11 +17,14 @@ class TextareaConfig extends FormConfig
     public $controller = TextareaController::class;
 
     /**
-     * Form name, is used for routing.
+     * Form route prefix.
      *
-     * @var string
+     * @return string
      */
-    public $formName = 'textarea';
+    public function routePrefix()
+    {
+        return 'fields/textarea';
+    }
 
     /**
      * Form singular name. This name will be displayed in the navigation.
@@ -31,17 +34,17 @@ class TextareaConfig extends FormConfig
     public function names()
     {
         return [
-            'singular' => 'textarea',
+            'singular' => 'Textarea <span class="badge badge-success">New</span>',
         ];
     }
 
     /**
      * Setup create and edit form.
      *
-     * @param \Fjord\Crud\CrudForm $form
+     * @param \Fjord\Crud\CrudShow $form
      * @return void
      */
-    public function form(CrudForm $form)
+    public function show(CrudShow $form)
     {
         $form->info('')
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Form/Fields/TextareaConfig.php" target="_blank">See the code for this page on github.</a>')
@@ -57,6 +60,21 @@ class TextareaConfig extends FormConfig
                 ->title('Description')
                 ->placeholder('Type something...')
                 ->hint('Textarea Field.');
+
+            $form->textarea('text')
+                ->translatable()
+                ->maxRows(10)
+                ->title('maxRows 10 <span class="badge badge-success">New</span>')
+                ->placeholder('Type something...')
+                ->hint('maxRows 10.');
+
+            $form->textarea('text')
+                ->translatable()
+                ->rows(2)
+                ->maxRows(2)
+                ->title('rows 2 <span class="badge badge-success">New</span>')
+                ->placeholder('Type something...')
+                ->hint('rows 2, maxRows 2.');
         });
     }
 }

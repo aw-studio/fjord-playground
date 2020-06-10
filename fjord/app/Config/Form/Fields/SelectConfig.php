@@ -2,7 +2,7 @@
 
 namespace FjordApp\Config\Form\Fields;
 
-use Fjord\Crud\CrudForm;
+use Fjord\Crud\CrudShow;
 use Fjord\Crud\Config\FormConfig;
 use FjordApp\Controllers\Form\Fields\SelectController;
 
@@ -17,11 +17,14 @@ class SelectConfig extends FormConfig
     public $controller = SelectController::class;
 
     /**
-     * Form name, is used for routing.
+     * Form route prefix.
      *
-     * @var string
+     * @return string
      */
-    public $formName = 'select';
+    public function routePrefix()
+    {
+        return 'fields/select';
+    }
 
     /**
      * Form singular name. This name will be displayed in the navigation.
@@ -38,10 +41,10 @@ class SelectConfig extends FormConfig
     /**
      * Setup create and edit form.
      *
-     * @param \Fjord\Crud\CrudForm $form
+     * @param \Fjord\Crud\CrudShow $form
      * @return void
      */
-    public function form(CrudForm $form)
+    public function show(CrudShow $form)
     {
         $form->info('')
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Form/Fields/SelectConfig.php" target="_blank">See the code for this page on github.</a>')

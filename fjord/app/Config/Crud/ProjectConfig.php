@@ -3,9 +3,9 @@
 namespace FjordApp\Config\Crud;
 
 use App\Models\Project;
-use Fjord\Crud\CrudForm;
+use Fjord\Crud\CrudShow;
 use App\Models\ProjectState;
-use Fjord\Vue\Crud\CrudTable;
+use Fjord\Crud\CrudIndex;
 
 use Fjord\Crud\Config\CrudConfig;
 use Illuminate\Database\Eloquent\Builder;
@@ -28,20 +28,6 @@ class ProjectConfig extends CrudConfig
     public $controller = ProjectController::class;
 
     /**
-     * Index table search keys.
-     *
-     * @var array
-     */
-    public $search = ['title', 'manager.last_name'];
-
-    /**
-     * Index table sort by default.
-     *
-     * @var string
-     */
-    public $sortByDefault = 'id.desc';
-
-    /**
      * Model singular and plural name.
      *
      * @return array
@@ -54,37 +40,15 @@ class ProjectConfig extends CrudConfig
         ];
     }
 
+    /**
+     * Preview route.
+     *
+     * @param \App\Models\Project $project
+     * @return string
+     */
     public function previewRoute($project)
     {
         return route('project', ['slug' => $project->slug]);
-    }
-
-    /**
-     * Sort by keys.
-     *
-     * @return array
-     */
-    public function sortBy()
-    {
-        return [
-            'id.desc' => __f('fj.sort_new_to_old'),
-            'id.asc' => __f('fj.sort_old_to_new'),
-        ];
-    }
-
-    /**
-     * Initialize index query.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder $query
-     */
-    public function indexQuery(Builder $query)
-    {
-        $query->with('manager');
-        $query->with('status');
-        $query->with('staff.department');
-
-        return $query;
     }
 
     /**
@@ -98,31 +62,39 @@ class ProjectConfig extends CrudConfig
     }
 
     /**
-     * Index table filter groups.
+     * Build index table.
      *
-     * @return array
+     * @param \Fjord\Crud\CrudIndex $table
+     * @return void
      */
-    public function filter()
+    public function index(CrudIndex $container)
     {
-        return [
-            'Status' => [
-                "onTrack" => "on track",
-                "offTrack" => "off track",
-                "onHold" => "on hold",
-                "ready" => "ready",
-                "blocked" => "blocked",
-                "finished" => "finished"
-            ],
-        ];
+        $container->table(fn ($table) => $this->indexTable($table))
+            ->query(fn ($query) => $query
+                ->with('manager')
+                ->with('status')
+                ->with('staff.department'))
+            ->filter([
+                'Status' => [
+                    "onTrack" => "on track",
+                    "offTrack" => "off track",
+                    "onHold" => "on hold",
+                    "ready" => "ready",
+                    "blocked" => "blocked",
+                    "finished" => "finished"
+                ],
+            ])
+            ->perPage(5)
+            ->search('title', 'manager.last_name');
     }
 
     /**
-     * Build index table.
+     * Index table
      *
-     * @param \Fjord\Vue\Crud\CrudTable $table
+     * @param CrudIndexTable $table
      * @return void
      */
-    public function index(CrudTable $table)
+    public function indexTable($table)
     {
         $table->col('Title')
             ->value('{title}')
@@ -151,10 +123,10 @@ class ProjectConfig extends CrudConfig
     /**
      * Setup create and edit form.
      *
-     * @param \Fjord\Crud\CrudForm $form
+     * @param \Fjord\Crud\CrudShow $form
      * @return void
      */
-    public function form(CrudForm $form)
+    public function show(CrudShow $form)
     {
         $form->info('')
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Crud/ProjectConfig.php" target="_blank">See the code for this page on github.</a>')
@@ -172,10 +144,10 @@ class ProjectConfig extends CrudConfig
     /**
      * Define form sections in methods to keep the overview.
      *
-     * @param \Fjord\Crud\CrudForm $form
+     * @param \Fjord\Crud\CrudShow $form
      * @return void
      */
-    protected function mainCard(CrudForm $form)
+    protected function mainCard(CrudShow $form)
     {
         $form->input('title')
             ->title('Title')

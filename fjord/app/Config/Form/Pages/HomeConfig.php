@@ -2,16 +2,13 @@
 
 namespace FjordApp\Config\Form\Pages;
 
-use Fjord\Crud\CrudForm;
+use Fjord\Crud\CrudShow;
 use Fjord\Crud\Config\FormConfig;
 use Illuminate\Support\Facades\File;
-use Fjord\Crud\Config\Traits\HasCrudForm;
 use FjordApp\Controllers\Form\Pages\HomeController;
 
 class HomeConfig extends FormConfig
 {
-    use HasCrudForm;
-
     /**
      * Controller class.
      *
@@ -20,12 +17,20 @@ class HomeConfig extends FormConfig
     public $controller = HomeController::class;
 
     /**
-     * Form name, is used for routing.
+     * Form route prefix.
      *
-     * @var string
+     * @return string
      */
-    public $formName = 'home';
+    public function routePrefix()
+    {
+        return 'pages/home';
+    }
 
+    /**
+     * Preview route.
+     *
+     * @return string
+     */
     public function previewRoute()
     {
         return route('home');
@@ -34,10 +39,10 @@ class HomeConfig extends FormConfig
     /**
      * Setup create and edit form.
      *
-     * @param \Fjord\Crud\CrudForm $form
+     * @param \Fjord\Crud\CrudShow $form
      * @return void
      */
-    public function form(CrudForm $form)
+    public function show(CrudShow $form)
     {
         $form->info('')
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Form/Pages/HomeConfig.php" target="_blank">See the code for this page on github.</a>')
@@ -68,11 +73,11 @@ class HomeConfig extends FormConfig
         })->width(12)->title('Landing');
 
         $form->card(function ($form) {
-            $form->info('Blocks')
-                ->text('Here is an example of <a href="https://www.fjord-admin.com/docs/fields/blocks" target="_blank">blocks</a>, with them you can add and sort form field groups.')
+            $form->info('Block')
+                ->text('Here is an example of a <a href="https://www.fjord-admin.com/docs/fields/block" target="_blank">block</a> field, with them you can add and sort form field groups.')
                 ->width(12);
 
-            $form->blocks('cards')
+            $form->block('cards')
                 ->title('Cards')
                 ->blockWidth(1 / 3)
                 ->repeatables(function ($rep) {
@@ -90,8 +95,6 @@ class HomeConfig extends FormConfig
                             ->width(12);
                     });
                 });
-
-            //$form->markdown(File::get(__DIR__ . '/Blocks.md'));
         })->width(12);
 
         $form->card(function ($form) {
@@ -107,7 +110,7 @@ class HomeConfig extends FormConfig
                 ->hint('Portfolio text')
                 ->width(12);
 
-            $form->blocks('portfolio_images')
+            $form->block('portfolio_images')
                 ->title('Images')
                 ->blockWidth(12)
                 ->repeatables(function ($rep) {

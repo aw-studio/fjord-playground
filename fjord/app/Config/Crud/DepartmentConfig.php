@@ -2,8 +2,8 @@
 
 namespace FjordApp\Config\Crud;
 
-use Fjord\Crud\CrudForm;
-use Fjord\Vue\Crud\CrudTable;
+use Fjord\Crud\CrudShow;
+use Fjord\Crud\CrudIndex;
 use Fjord\Crud\Config\CrudConfig;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -27,20 +27,6 @@ class DepartmentConfig extends CrudConfig
     public $controller = DepartmentController::class;
 
     /**
-     * Index table search keys.
-     *
-     * @var array
-     */
-    public $search = ['name'];
-
-    /**
-     * Index table sort by default.
-     *
-     * @var string
-     */
-    public $sortByDefault = 'id.desc';
-
-    /**
      * Model singular and plural name.
      *
      * @return array
@@ -51,42 +37,6 @@ class DepartmentConfig extends CrudConfig
             'singular' => ucfirst(__f_choice('models.department', 1)),
             'plural' => ucfirst(__f_choice('models.department', 2)),
         ];
-    }
-
-    /**
-     * Sort by keys.
-     *
-     * @return array
-     */
-    public function sortBy()
-    {
-        return [
-            'id.desc' => __f('fj.sort_new_to_old'),
-            'id.asc' => __f('fj.sort_old_to_new'),
-        ];
-    }
-
-    /**
-     * Initialize index query.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder $query
-     */
-    public function indexQuery(Builder $query)
-    {
-        $query->withCount('Employees');
-
-        return $query;
-    }
-
-    /**
-     * Index table filter groups.
-     *
-     * @return array
-     */
-    public function filter()
-    {
-        return [];
     }
 
     /**
@@ -102,10 +52,23 @@ class DepartmentConfig extends CrudConfig
     /**
      * Build index table.
      *
-     * @param \Fjord\Vue\Crud\CrudTable $table
+     * @param \Fjord\Crud\CrudIndex $table
      * @return void
      */
-    public function index(CrudTable $table)
+    public function index(CrudIndex $container)
+    {
+        $container->table(fn ($table) => $this->indexTable($table))
+            ->query(fn ($query) => $query->withCount('Employees'))
+            ->search('name');
+    }
+
+    /**
+     * Index table
+     *
+     * @param CrudIndexTable $table
+     * @return void
+     */
+    public function indexTable($table)
     {
         $table->col('Department Name')
             ->value('{name}')
@@ -120,10 +83,10 @@ class DepartmentConfig extends CrudConfig
     /**
      * Setup create and edit form.
      *
-     * @param \Fjord\Crud\CrudForm $form
+     * @param \Fjord\Crud\CrudShow $form
      * @return void
      */
-    public function form(CrudForm $form)
+    public function show(CrudShow $form)
     {
         $form->info('')
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Crud/DepartmentConfig.php" target="_blank">See the code for this page on github.</a>')
@@ -141,10 +104,10 @@ class DepartmentConfig extends CrudConfig
     /**
      * Define form sections in methods to keep the overview.
      *
-     * @param \Fjord\Crud\CrudForm $form
+     * @param \Fjord\Crud\CrudShow $form
      * @return void
      */
-    protected function mainCard(CrudForm $form)
+    protected function mainCard(CrudShow $form)
     {
         $form->input('name')
             ->title('Name')
