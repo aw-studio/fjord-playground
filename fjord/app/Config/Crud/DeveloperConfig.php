@@ -2,8 +2,8 @@
 
 namespace FjordApp\Config\Crud;
 
-use Fjord\Crud\CrudForm;
-use Fjord\Vue\Crud\CrudTable;
+use Fjord\Crud\CrudShow;
+use Fjord\Crud\CrudIndex;
 use Fjord\Crud\Config\CrudConfig;
 use Illuminate\Database\Eloquent\Builder;
 
@@ -25,20 +25,6 @@ class DeveloperConfig extends CrudConfig
      * @var string
      */
     public $controller = DeveloperController::class;
-
-    /**
-     * Index table search keys.
-     *
-     * @var array
-     */
-    public $search = ['title'];
-
-    /**
-     * Index table sort by default.
-     *
-     * @var string
-     */
-    public $sortByDefault = 'id.desc';
 
     /**
      * Model singular and plural name.
@@ -64,53 +50,30 @@ class DeveloperConfig extends CrudConfig
     }
 
     /**
-     * Sort by keys.
-     *
-     * @return array
-     */
-    public function sortBy()
-    {
-        return [
-            'id.desc' => __f('fj.sort_new_to_old'),
-            'id.asc' => __f('fj.sort_old_to_new'),
-        ];
-    }
-
-    /**
-     * Initialize index query.
-     *
-     * @param \Illuminate\Database\Eloquent\Builder $query
-     * @return \Illuminate\Database\Eloquent\Builder $query
-     */
-    public function indexQuery(Builder $query)
-    {
-        // $query->with('relation');
-
-        return $query;
-    }
-
-    /**
-     * Index table filter groups.
-     *
-     * @return array
-     */
-    public function filter()
-    {
-        return [
-            'Task' => [
-                'design' => 'Design',
-                'development' => 'Development',
-            ]
-        ];
-    }
-
-    /**
      * Build index table.
      *
-     * @param \Fjord\Vue\Crud\CrudTable $table
+     * @param \Fjord\Crud\CrudIndex $table
      * @return void
      */
-    public function index(CrudTable $table)
+    public function index(CrudIndex $container)
+    {
+        $container->table(fn ($table) => $this->indexTable($table))
+            ->filter([
+                'Task' => [
+                    'design' => 'Design',
+                    'development' => 'Development',
+                ]
+            ])
+            ->search('title');
+    }
+
+    /**
+     * Index table
+     *
+     * @param CrudIndexTable $table
+     * @return void
+     */
+    public function indexTable($table)
     {
         $table->image('Image')
             ->src('{image.conversion_urls.sm}')
@@ -129,10 +92,10 @@ class DeveloperConfig extends CrudConfig
     /**
      * Setup create and edit form.
      *
-     * @param \Fjord\Crud\CrudForm $form
+     * @param \Fjord\Crud\CrudShow $form
      * @return void
      */
-    public function form(CrudForm $form)
+    public function show(CrudShow $form)
     {
         $form->info('')
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Crud/DeveloperConfig.php" target="_blank">See the code for this page on github.</a>')

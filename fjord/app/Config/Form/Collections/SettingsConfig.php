@@ -2,15 +2,12 @@
 
 namespace FjordApp\Config\Form\Collections;
 
-use Fjord\Crud\CrudForm;
+use Fjord\Crud\CrudShow;
 use Fjord\Crud\Config\FormConfig;
-use Fjord\Crud\Config\Traits\HasCrudForm;
 use FjordApp\Controllers\Form\Collections\SettingsController;
 
 class SettingsConfig extends FormConfig
 {
-    use HasCrudForm;
-
     /**
      * Controller class.
      *
@@ -19,12 +16,20 @@ class SettingsConfig extends FormConfig
     public $controller = SettingsController::class;
 
     /**
-     * Form name, is used for routing.
+     * Form route prefix.
      *
-     * @var string
+     * @return string
      */
-    public $formName = 'settings';
+    public function routePrefix()
+    {
+        return 'settings';
+    }
 
+    /**
+     * Form names.
+     *
+     * @return array
+     */
     public function names()
     {
         return [
@@ -35,10 +40,10 @@ class SettingsConfig extends FormConfig
     /**
      * Setup form.
      *
-     * @param \Fjord\Crud\CrudForm $form
+     * @param \Fjord\Crud\CrudShow $form
      * @return void
      */
-    public function form(CrudForm $form)
+    public function show(CrudShow $form)
     {
         $form->info('')
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Form/Collections/SettingsConfig.php" target="_blank">See the code for this page on github.</a>')

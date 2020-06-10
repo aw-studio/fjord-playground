@@ -3,7 +3,7 @@
 namespace FjordApp\Config\Form\Relations;
 
 use App\Models\Employee;
-use Fjord\Crud\CrudForm;
+use Fjord\Crud\CrudShow;
 use Fjord\Crud\Config\FormConfig;
 use FjordApp\Controllers\Form\Relations\ManyRelationController;
 
@@ -18,11 +18,14 @@ class ManyRelationConfig extends FormConfig
     public $controller = ManyRelationController::class;
 
     /**
-     * Form name, is used for routing.
+     * Form route prefix.
      *
-     * @var string
+     * @return string
      */
-    public $formName = 'many_relation';
+    public function routePrefix()
+    {
+        return 'fields/many-relation';
+    }
 
     /**
      * Form singular name. This name will be displayed in the navigation.
@@ -32,17 +35,17 @@ class ManyRelationConfig extends FormConfig
     public function names()
     {
         return [
-            'singular' => 'manyRelation',
+            'singular' => 'manyRelation <span class="badge badge-success">New</span>',
         ];
     }
 
     /**
      * Setup create and edit form.
      *
-     * @param \Fjord\Crud\CrudForm $form
+     * @param \Fjord\Crud\CrudShow $form
      * @return void
      */
-    public function form(CrudForm $form)
+    public function show(CrudShow $form)
     {
         $form->info('')
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Form/Relations/ManyRelationConfig.php" target="_blank">See the code for this page on github.</a>')
@@ -54,11 +57,18 @@ class ManyRelationConfig extends FormConfig
 
         $form->card(function ($form) {
             $form->manyRelation('employees')
-                ->title('Employee')
+                ->title('Relation displayed as table')
                 ->model(Employee::class)
+                ->showTableHead()
                 ->preview(function ($table) {
-                    $table->col('{first_name} {last_name}');
+                    $table->col('Name')->value('{first_name} {last_name}');
                 });
+
+            $form->manyRelation('employees_tags')
+                ->title('Relation as tag preview <span class="badge badge-success">New</span>')
+                ->type('tags')
+                ->model(Employee::class)
+                ->tagValue('{first_name}');
         });
     }
 }

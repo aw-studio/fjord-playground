@@ -1,7 +1,7 @@
-The blocks are created with the following code.
+The block is created with the following code.
 
 ```php
-$form->blocks('cards')
+$form->block('cards')
     ->title('Cards')
     ->blockWidth(1 / 3)
     ->repeatables(function ($rep) {
