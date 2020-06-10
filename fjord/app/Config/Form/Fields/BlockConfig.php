@@ -62,7 +62,7 @@ class BlockConfig extends FormConfig
                     // Add as many repeatables as you want.
                     $repeatables->add('text', function ($form, $preview) {
                         // The block preview.
-                        $preview->col('{text}');
+                        $preview->col('{text}')->maxChars(70);
 
                         // Containing as many form fields as you want.
                         $form->input('text')
