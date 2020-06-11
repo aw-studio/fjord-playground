@@ -100,7 +100,9 @@ class ProfileSettingsConfig extends CrudConfig
             ->form(function ($modal) {
                 $modal->input('email')
                     ->width(12)
-                    ->rules('required')
+                    ->rules('required', function ($attribute, $value, $fail) {
+                        return $fail('Whoops, this is just a demo.');
+                    })
                     ->title('E-Mail');
             })->width(6);
 
@@ -150,7 +152,9 @@ class ProfileSettingsConfig extends CrudConfig
 
                 $modal->password('password')
                     ->title('New Password')
-                    ->rules('required', 'min:5')
+                    ->rules('required', 'min:5', function ($attribute, $value, $fail) {
+                        return $fail('Whoops, this is just a demo.');
+                    })
                     ->minScore(0);
 
                 $modal->password('password_confirmation')

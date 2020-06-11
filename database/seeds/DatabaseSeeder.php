@@ -74,7 +74,7 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'Uwe',
                 'task' => 'Design',
-                'twitter' => 'https://twitter.com/uwesteff',
+                'twitter' => 'https://twitter.com/uwesteffen3',
                 'image' => 'dump/developers/uwe.jpg'
             ],
             [

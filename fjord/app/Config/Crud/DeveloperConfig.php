@@ -87,6 +87,11 @@ class DeveloperConfig extends CrudConfig
         $table->col('Task')
             ->value('{task}')
             ->sortBy('task');
+
+        $table->component('devs-twitter')
+            ->label('Twitter')
+            ->link(false)
+            ->small();
     }
 
     /**
