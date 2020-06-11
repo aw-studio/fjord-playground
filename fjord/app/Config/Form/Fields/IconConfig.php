@@ -58,6 +58,14 @@ class IconConfig extends FormConfig
             $form->icon('icon')
                 ->title('Icon')
                 ->hint('Default fontawesome icons.');
+
+            $form->markdown("
+```php
+\$form->icon('icon')
+    ->title('Icon')
+    ->hint('Default fontawesome icons.');
+```
+");
         });
     }
 }

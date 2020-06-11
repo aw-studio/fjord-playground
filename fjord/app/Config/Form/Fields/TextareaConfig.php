@@ -34,7 +34,7 @@ class TextareaConfig extends FormConfig
     public function names()
     {
         return [
-            'singular' => 'Textarea <span class="badge badge-success">New</span>',
+            'singular' => 'Textarea',
         ];
     }
 
@@ -64,7 +64,7 @@ class TextareaConfig extends FormConfig
             $form->textarea('text')
                 ->translatable()
                 ->maxRows(10)
-                ->title('maxRows 10 <span class="badge badge-success">New</span>')
+                ->title('maxRows 10')
                 ->placeholder('Type something...')
                 ->hint('maxRows 10.');
 
@@ -72,7 +72,7 @@ class TextareaConfig extends FormConfig
                 ->translatable()
                 ->rows(2)
                 ->maxRows(2)
-                ->title('rows 2 <span class="badge badge-success">New</span>')
+                ->title('rows 2')
                 ->placeholder('Type something...')
                 ->hint('rows 2, maxRows 2.');
         });

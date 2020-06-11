@@ -1,6 +1,6 @@
--- Created at 9.6.2020 14:10 using David Grudl MySQL Dump Utility
--- MySQL Server: 5.7.29
--- Database: fjord-playground
+-- Created at 11.6.2020 9:39 using David Grudl MySQL Dump Utility
+-- MySQL Server: 5.7.28
+-- Database: fjord-master
 
 SET NAMES utf8;
 SET SQL_MODE='NO_AUTO_VALUE_ON_ZERO';
@@ -45,7 +45,7 @@ INSERT INTO `form_field_translations` (`id`, `form_field_id`, `locale`, `value`)
 (1,	1,	'en',	'{\"portfolio_title\":\"Portfolio\",\"portfolio_text\":\"<p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias<\\/p>\",\"header\":\"Fjord Admin\",\"text\":\"Fjord is a package for building and maintaining the data of your Laravel applications.\"}'),
 (2,	1,	'de',	'{\"portfolio_title\":\"Portfolio\",\"portfolio_text\":\"<p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias<\\/p>\",\"header\":\"Fjord Admin\",\"text\":\"Fjord ist ein Paket zum Aufbau und zur Pflege der Daten Ihrer Laravel-Anwendungen.\"}'),
 (3,	1,	'es',	'{\"portfolio_title\":\"Portafolio\",\"portfolio_text\":\"<p>Sit sint consectetur velit quisquam cupiditate impedit suscipit alias<\\/p>\",\"header\":\"Fjord Admin\",\"text\":\"Fjord es un paquete para construir y mantener los datos de sus aplicaciones Laravel.\"}'),
-(4,	10,	'en',	'{\"text\":\"<h2 class=\\\"h2\\\">Lorem Ipsum<\\/h2><p>Lorem Ipsum<\\/p>\"}');
+(4,	10,	'en',	'{\"text\":\"<h2>Fjord<\\/h2><p>A true <strong><span style=\\\"color: #4951f2\\\">fjord<\\/span><\\/strong> is formed when a glacier cuts a U-shaped valley by ice segregation and abrasion of the surrounding bedrock. According to the standard model, glaciers formed in pre-glacial valleys with a gently sloping valley floor. The work of the glacier then left an overdeepened U-shaped valley that ends abruptly at a valley or trough end. Such valleys are fjords when flooded by the ocean. Thresholds above sea level create freshwater lakes. Glacial melting is accompanied by the rebounding of Earth\'s crust as the ice load and eroded sediment is removed (also called isostasy or glacial rebound). In some cases this rebound is faster than sea level rise. Most fjords are deeper than the adjacent sea; Sognefjord, Norway, reaches as much as 1,300 m (4,265 ft) below sea level.<\\/p><ul><li><p><a href=\\\"https:\\/\\/en.wikipedia.org\\/wiki\\/Faroe_Islands\\\" target=\\\"_blank\\\">Faroe Islands<\\/a><\\/p><\\/li><li><p><a href=\\\"https:\\/\\/en.wikipedia.org\\/wiki\\/Westfjords\\\" target=\\\"_blank\\\">Westfjords<\\/a><span>&nbsp;<\\/span>of Iceland<\\/p><\\/li><li><p><a href=\\\"https:\\/\\/en.wikipedia.org\\/wiki\\/Eastern_Region_(Iceland)\\\" target=\\\"_blank\\\">Eastern Region<\\/a><span>&nbsp;<\\/span>of Iceland<\\/p><\\/li><li><p><a href=\\\"https:\\/\\/en.wikipedia.org\\/wiki\\/West_Highlands\\\" target=\\\"_blank\\\">West Highlands<\\/a><span>&nbsp;<\\/span>of Scotland<\\/p><\\/li><li><p><a href=\\\"https:\\/\\/en.wikipedia.org\\/wiki\\/Norway\\\" target=\\\"_blank\\\">Norway<\\/a>, the whole coast including<span>&nbsp;<\\/span><a href=\\\"https:\\/\\/en.wikipedia.org\\/wiki\\/Svalbard\\\" target=\\\"_blank\\\">Svalbard<\\/a><\\/p><\\/li><li><p><a href=\\\"https:\\/\\/en.wikipedia.org\\/wiki\\/Kola_Peninsula\\\" target=\\\"_blank\\\">Kola Peninsula<\\/a><span>&nbsp;<\\/span>in Russia<\\/p><\\/li><\\/ul><p><\\/p><p><a href=\\\"https:\\/\\/en.wikipedia.org\\/wiki\\/Fjord\\\" target=\\\"_blank\\\">https:\\/\\/en.wikipedia.org\\/wiki\\/Fjord<\\/a><\\/p>\"}');
 ALTER TABLE `form_field_translations` ENABLE KEYS;
 
 
@@ -60,9 +60,9 @@ INSERT INTO `form_fields` (`id`, `collection`, `form_name`, `value`, `order_colu
 (3,	'fields',	'block',	NULL,	NULL,	'2020-06-09 13:37:37',	'2020-06-09 13:37:37'),
 (4,	'fields',	'code',	'{\"code\":\"<html>\\n  <head>\\n    <title>Hello World!<\\/title>\\n  <\\/head>\\n  <body>\\n    <h1>Hello World!<\\/h1>\\n  <\\/body>\\n<\\/html>\",\"js_code\":\"function speak(words) {\\n  console.log(words)\\n}\\n\\nspeak(\'Hello World\');\",\"js_code_theme\":\"function speak(words) {\\n  console.log(words)\\n}\\n\\nspeak(\'Hello World\');\"}',	NULL,	'2020-06-09 13:37:40',	'2020-06-09 13:39:12'),
 (5,	'fields',	'modal',	'{\"text\":\"<p>Dummy text.<\\/p>\",\"email\":\"admin@admin.com\"}',	NULL,	'2020-06-09 13:42:41',	'2020-06-09 13:42:57'),
-(6,	'fields',	'boolean',	'{\"active\":true}',	NULL,	'2020-06-09 13:44:22',	'2020-06-09 13:50:47'),
+(6,	'fields',	'boolean',	'{\"active\":false}',	NULL,	'2020-06-09 13:44:22',	'2020-06-11 08:55:48'),
 (7,	'fields',	'datetime',	NULL,	NULL,	'2020-06-09 13:45:39',	'2020-06-09 13:45:39'),
-(8,	'fields',	'icon',	NULL,	NULL,	'2020-06-09 13:46:20',	'2020-06-09 13:46:20'),
+(8,	'fields',	'icon',	'{\"icon\":\"<i class=\\\"fas fa-address-card\\\"><\\/i>\"}',	NULL,	'2020-06-09 13:46:20',	'2020-06-11 09:04:13'),
 (9,	'fields',	'checkboxes',	'{\"fruits\":[\"apple\"]}',	NULL,	'2020-06-09 13:47:24',	'2020-06-09 13:50:35'),
 (10,	'fields',	'wysiwyg',	'[]',	NULL,	'2020-06-09 13:53:14',	'2020-06-09 13:53:34'),
 (11,	'fields',	'textarea',	NULL,	NULL,	'2020-06-09 13:53:57',	'2020-06-09 13:53:57'),

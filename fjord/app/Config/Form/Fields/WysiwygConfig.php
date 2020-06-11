@@ -34,7 +34,7 @@ class WysiwygConfig extends FormConfig
     public function names()
     {
         return [
-            'singular' => 'Wysiwyg',
+            'singular' => 'Wysiwyg <span class="badge badge-success">New</span>',
         ];
     }
 
@@ -57,8 +57,23 @@ class WysiwygConfig extends FormConfig
         $form->card(function ($form) {
             $form->wysiwyg('text')
                 ->translatable()
+                ->colors([
+                    '#4951f2', '#f67693', '#f6ed76', '#9ff2ae', '#83c2ff'
+                ])
                 ->title('Description')
                 ->hint('What you see is what you get field.');
+
+            $form->markdown("
+```php
+\$form->wysiwyg('text')
+    ->translatable()
+    ->colors([
+        '#4951f2', '#f67693', '#f6ed76', '#9ff2ae', '#83c2ff'
+    ])
+    ->title('Description')
+    ->hint('What you see is what you get field.');
+```
+");
         });
     }
 }
