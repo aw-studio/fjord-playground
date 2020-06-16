@@ -34,7 +34,7 @@ class ImageConfig extends FormConfig
     public function names()
     {
         return [
-            'singular' => 'Image <span class="badge badge-success">New</span>',
+            'singular' => 'Image',
         ];
     }
 
@@ -69,7 +69,7 @@ class ImageConfig extends FormConfig
                 ->maxFiles(5);
 
             $form->image('expand_image')
-                ->title('Expand Image <span class="badge badge-success">New</span>')
+                ->title('Expand Image')
                 ->hint('expand.')
                 ->expand()
                 ->maxFiles(1);

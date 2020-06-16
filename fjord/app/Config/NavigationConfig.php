@@ -48,7 +48,7 @@ class NavigationConfig extends Config
             $nav->title('Fields'),
 
             $nav->group([
-                'title' => 'Fields <span class="badge badge-success">New</span>',
+                'title' => 'Fields',
                 'icon' => fa('th'),
             ], [
                 $nav->preset('form.fields.block', [
@@ -95,7 +95,7 @@ class NavigationConfig extends Config
                 ]),
             ]),
             $nav->group([
-                'title' => 'Relations <span class="badge badge-success">New</span>',
+                'title' => 'Relations',
                 'icon' => fa('list'),
             ], [
                 $nav->preset('form.relations.one_relation', [
@@ -105,7 +105,16 @@ class NavigationConfig extends Config
                     'icon' => fa('clone')
                 ]),
 
-            ])
+            ]),
+
+            $nav->title('Charts'),
+
+            $nav->preset('form.charts.area', [
+                'icon' => fa('chart-line')
+            ]),
+            $nav->preset('form.charts.donut', [
+                'icon' => fa('chart-pie')
+            ]),
         ]);
 
         $nav->section([

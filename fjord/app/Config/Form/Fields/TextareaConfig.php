@@ -34,7 +34,7 @@ class TextareaConfig extends FormConfig
     public function names()
     {
         return [
-            'singular' => 'Textarea <span class="badge badge-success">New</span>',
+            'singular' => 'Textarea',
         ];
     }
 

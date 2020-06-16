@@ -35,7 +35,7 @@ class OneRelationConfig extends FormConfig
     public function names()
     {
         return [
-            'singular' => 'oneRelation <span class="badge badge-success">New</span>',
+            'singular' => 'oneRelation',
         ];
     }
 
@@ -65,7 +65,7 @@ class OneRelationConfig extends FormConfig
                 });
 
             $form->oneRelation('names_department')
-                ->title('Relation displayed as link <span class="badge badge-success">New</span>')
+                ->title('Relation displayed as link')
                 ->type('link')
                 ->linkValue('{first_name} {last_name}')
                 ->model(Employee::class)

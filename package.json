@@ -28,6 +28,7 @@
         "jquery": "^3.5.1",
         "js-file-download": "^0.4.12",
         "moment": "^2.24.0",
+        "numeral": "^2.0.6",
         "vue": "^2.6.11",
         "vue-gtag": "^1.6.2"
     }
