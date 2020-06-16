@@ -1,16 +1,41 @@
 /*!
+    * tiptap v1.27.0
+    * (c) 2020 Scrumpy UG (limited liability)
+    * @license MIT
+    */
+
+/*!
+    * tiptap-commands v1.13.0
+    * (c) 2020 Scrumpy UG (limited liability)
+    * @license MIT
+    */
+
+/*!
+    * tiptap-extensions v1.29.0
+    * (c) 2020 Scrumpy UG (limited liability)
+    * @license MIT
+    */
+
+/*!
+    * tiptap-utils v1.9.0
+    * (c) 2020 Scrumpy UG (limited liability)
+    * @license MIT
+    */
+
+/*!
   * Bootstrap v4.4.1 (https://getbootstrap.com/)
   * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
   */
 
 /*!
- * @license Copyright (c) 2003-2019, CKSource - Frederico Knabben. All rights reserved.
- * For licensing, see LICENSE.md.
+ * ApexCharts v3.19.2
+ * (c) 2018-2020 Juned Chhipa
+ * Released under the MIT License.
  */
 
 /*!
- * BootstrapVue Icons, generated from Bootstrap Icons 1.0.0-alpha2
+ * BootstrapVue Icons, generated from Bootstrap Icons 1.0.0-alpha4
  *
  * @link https://icons.getbootstrap.com/
  * @license MIT
@@ -74,6 +99,22 @@
   * https://github.com/linusborg/portal-vue
   * 
  */
+
+/*! @preserve
+ * numeral.js
+ * version : 2.0.6
+ * author : Adam Draper
+ * license : MIT
+ * http://adamwdraper.github.com/Numeral-js/
+ */
+
+/*! svg.draggable.js - v2.2.2 - 2019-01-08
+* https://github.com/svgdotjs/svg.draggable.js
+* Copyright (c) 2019 Wout Fierens; Licensed MIT */
+
+/*! svg.filter.js - v2.0.2 - 2016-02-24
+* https://github.com/wout/svg.filter.js
+* Copyright (c) 2016 Wout Fierens; Licensed MIT */
 
 /**
  * @license

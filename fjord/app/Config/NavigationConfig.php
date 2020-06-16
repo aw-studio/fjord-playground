@@ -75,6 +75,10 @@ class NavigationConfig extends Config
                 $nav->preset('form.fields.input', [
                     'icon' => fa('font')
                 ]),
+
+                $nav->preset('form.fields.list', [
+                    'icon' => fa('stream')
+                ]),
                 $nav->preset('form.fields.modal', [
                     'icon' => fa('window-maximize')
                 ]),
