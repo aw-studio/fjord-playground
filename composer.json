@@ -10,7 +10,7 @@
     "repositories": [],
     "require": {
         "php": "^7.2",
-        "aw-studio/fjord": "^2.3",
+        "aw-studio/fjord": "dev-feature-charts",
         "dg/mysql-dump": "^1.5",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "^7.0",

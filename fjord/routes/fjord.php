@@ -1,6 +1,6 @@
 <?php
 
-Route::get('/', FjordApp\Controllers\DashboardController::class)->name('dashboard');
+//Route::get('/', FjordApp\Controllers\DashboardController::class)->name('dashboard');
 
 // Employee
 Route::get("/export-employees", FjordApp\Controllers\Crud\EmployeeController::class . "@exportEmployees");

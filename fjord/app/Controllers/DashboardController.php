@@ -18,7 +18,7 @@ class DashboardController
             ->withComponent('example')
             ->withTitle('Dashboard')
             ->withProps([
-                'title' => 'Dashboard'
+                'title' => 'Dashboard',
             ]);
     }
 }

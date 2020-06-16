@@ -1,14 +1,12 @@
 <?php
 
+use App\Models\Sale;
 use App\Models\Project;
 use App\Models\Employee;
 use App\Models\Developer;
-use App\Models\ProjectState;
-use Faker\Generator as Faker;
 use Fjord\Support\Facades\Form;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Role;
-use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\File;
 
 class DatabaseSeeder extends Seeder
@@ -33,6 +31,8 @@ class DatabaseSeeder extends Seeder
         }
 
         $this->employees();
+
+        factory(Sale::class, 1000)->create();
 
         $statuses = [
             'on track',

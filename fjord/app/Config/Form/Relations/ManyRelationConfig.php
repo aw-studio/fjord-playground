@@ -35,7 +35,7 @@ class ManyRelationConfig extends FormConfig
     public function names()
     {
         return [
-            'singular' => 'manyRelation <span class="badge badge-success">New</span>',
+            'singular' => 'manyRelation',
         ];
     }
 
@@ -65,7 +65,7 @@ class ManyRelationConfig extends FormConfig
                 });
 
             $form->manyRelation('employees_tags')
-                ->title('Relation as tag preview <span class="badge badge-success">New</span>')
+                ->title('Relation as tag preview')
                 ->type('tags')
                 ->model(Employee::class)
                 ->tagValue('{first_name}');

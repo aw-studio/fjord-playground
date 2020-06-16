@@ -75,6 +75,10 @@ class NavigationConfig extends Config
                 $nav->preset('form.fields.input', [
                     'icon' => fa('font')
                 ]),
+
+                $nav->preset('form.fields.list', [
+                    'icon' => fa('stream')
+                ]),
                 $nav->preset('form.fields.modal', [
                     'icon' => fa('window-maximize')
                 ]),
@@ -95,7 +99,7 @@ class NavigationConfig extends Config
                 ]),
             ]),
             $nav->group([
-                'title' => 'Relations <span class="badge badge-success">New</span>',
+                'title' => 'Relations',
                 'icon' => fa('list'),
             ], [
                 $nav->preset('form.relations.one_relation', [
@@ -105,7 +109,16 @@ class NavigationConfig extends Config
                     'icon' => fa('clone')
                 ]),
 
-            ])
+            ]),
+
+            $nav->title('Charts'),
+
+            $nav->preset('form.charts.area', [
+                'icon' => fa('chart-line')
+            ]),
+            $nav->preset('form.charts.donut', [
+                'icon' => fa('chart-pie')
+            ]),
         ]);
 
         $nav->section([

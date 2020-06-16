@@ -16,6 +16,8 @@ class CreateFormFieldsTable extends Migration
         Schema::create('form_fields', function (Blueprint $table) {
             $table->bigIncrements('id');
 
+            $table->string('config_type');
+            $table->string('form_type')->nullable();
             $table->string('collection')->nullable();
             $table->string('form_name')->nullable();
 
@@ -45,7 +47,9 @@ class CreateFormFieldsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('form_fields');
         Schema::dropIfExists('form_field_translations');
+        Schema::enableForeignKeyConstraints();
     }
 }
