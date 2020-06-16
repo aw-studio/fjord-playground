@@ -46,18 +46,21 @@ class AreaConfig extends FormConfig
     public function show(CrudShow $container)
     {
         $container->info('')
-            ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Charts/SalesCountChartConfig.php" target="_blank">See the code for this chart on github.</a>')
+            ->text(fa('fas', 'info-circle') . ' <a href="https://www.fjord-admin.com/docs/charts/basic/" target="_blank">Read the docs.</a>')
+            ->width(12);
+
+        $container->info('')
+            ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Charts/SalesCountChartConfig.php" target="_blank">See the code for this <b>chart</b> on github.</a>')
             ->width(6);
         $container->info('')
-            ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Charts/SalesAvgChartConfig.php" target="_blank">See the code for this chart on github.</a>')
+            ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Charts/SalesAvgChartConfig.php" target="_blank">See the code for this <b>chart</b> on github.</a>')
             ->width(6);
 
         $container->chart('charts.sales_count_chart')->variant('primary')->width(1 / 2)->height('200px');
-        $container->chart('charts.product_sales_chart')->variant('secondary')->width(1 / 3);
-        $container->chart('charts.sales_avg_chart')->variant('white')->width(1 / 2)->height('200px');
+        $container->chart('charts.sales_avg_chart')->variant('secondary')->width(1 / 2)->height('200px');
 
         $container->info('')
-            ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Charts/SalesMaxChartConfig.php" target="_blank">See the code for this chart on github.</a>')
+            ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Charts/SalesMaxChartConfig.php" target="_blank">See the code for this <b>chart</b> on github.</a>')
             ->width(4);
 
         $container->chart('charts.sales_max_chart')->variant('white')->width(12)->height('250px');

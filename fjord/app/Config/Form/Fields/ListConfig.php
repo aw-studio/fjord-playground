@@ -49,6 +49,10 @@ class ListConfig extends FormConfig
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Form/Fields/ListConfig.php" target="_blank">See the code for this page on github.</a>')
             ->width(12);
 
+        $form->info('')
+            ->text(fa('fas', 'info-circle') . ' <a href="https://www.fjord-admin.com/docs/fields/list/" target="_blank">Read the docs.</a>')
+            ->width(12);
+
         $container->card(function ($form) {
 
             $form->info('List Field')
@@ -65,7 +69,6 @@ class ListConfig extends FormConfig
                     $form->text('text')
                         ->title('Text');
                 });
-
 
             $form->markdown("
 ```php

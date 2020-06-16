@@ -44,7 +44,7 @@ class SalesAvgChartConfig extends AreaChartConfig
      */
     public function value($query): int
     {
-        return $query->select('price')->average('price');
+        return $query->select('price')->average('price') ?: 0;
     }
 
     /**
