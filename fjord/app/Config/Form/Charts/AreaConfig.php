@@ -4,6 +4,9 @@ namespace FjordApp\Config\Form\Charts;
 
 use Fjord\Crud\CrudShow;
 use Fjord\Crud\Config\FormConfig;
+use FjordApp\Config\Charts\SalesAvgChartConfig;
+use FjordApp\Config\Charts\SalesCountChartConfig;
+use FjordApp\Config\Charts\SalesMaxChartConfig;
 use FjordApp\Controllers\Form\Charts\AreaController;
 
 class AreaConfig extends FormConfig
@@ -33,7 +36,7 @@ class AreaConfig extends FormConfig
     public function names()
     {
         return [
-            'singular' => 'Area Chart <span class="badge badge-warning">Beta</span>',
+            'singular' => 'Area Chart <span class="badge badge-success">New</span>',
         ];
     }
 
@@ -56,13 +59,13 @@ class AreaConfig extends FormConfig
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Charts/SalesAvgChartConfig.php" target="_blank">See the code for this <b>chart</b> on github.</a>')
             ->width(6);
 
-        $container->chart('charts.sales_count_chart')->variant('primary')->width(1 / 2)->height('200px');
-        $container->chart('charts.sales_avg_chart')->variant('secondary')->width(1 / 2)->height('200px');
+        $container->chart(SalesCountChartConfig::class)->variant('primary')->width(1 / 2)->height('200px');
+        $container->chart(SalesAvgChartConfig::class)->variant('secondary')->width(1 / 2)->height('200px');
 
         $container->info('')
             ->text(fa('fab', 'github') . ' <a href="https://github.com/aw-studio/fjord-playground/blob/master/fjord/app/Config/Charts/SalesMaxChartConfig.php" target="_blank">See the code for this <b>chart</b> on github.</a>')
             ->width(4);
 
-        $container->chart('charts.sales_max_chart')->variant('white')->width(12)->height('250px');
+        $container->chart(SalesMaxChartConfig::class)->variant('white')->width(12)->height('250px');
     }
 }

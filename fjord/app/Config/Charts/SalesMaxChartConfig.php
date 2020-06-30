@@ -42,19 +42,8 @@ class SalesMaxChartConfig extends AreaChartConfig
      * @param Builder $query
      * @return integer
      */
-    public function value($query): int
+    public function value($query)
     {
-        return $query->selectRaw('MAX(price) as max')->first()->max ?? 0;
-    }
-
-    /**
-     * Number that is displayed at the bottom left corner.
-     *
-     * @param \Illuminate\Support\Collection
-     * @return integer
-     */
-    public function result(Collection $values): int
-    {
-        return $values->avg() ?: 0;
+        return $this->max($query, 'price');
     }
 }

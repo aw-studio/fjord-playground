@@ -48,8 +48,8 @@ class EmployeeConfig extends CrudConfig
      */
     public function indexComponent($component)
     {
-        $component->slot('headerControls', 'export-employees-button');
-        $component->slot('navControls', 'export-employees-control');
+        // $component->slot('headerControls', 'export-employees-button');
+        // $component->slot('navControls', 'export-employees-control');
     }
 
     /**

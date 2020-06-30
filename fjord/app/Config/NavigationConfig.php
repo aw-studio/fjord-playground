@@ -113,12 +113,29 @@ class NavigationConfig extends Config
 
             $nav->title('Charts'),
 
-            $nav->preset('form.charts.area', [
-                'icon' => fa('chart-line')
+            $nav->group([
+                'title' => 'Charts',
+                'icon' => fa('chart-line'),
+            ], [
+                $nav->preset('form.charts.area', [
+                    'icon' => fa('chart-line')
+                ]),
+                $nav->preset('form.charts.bar', [
+                    'icon' => fa('chart-bar')
+                ]),
+                $nav->preset('form.charts.donut', [
+                    'icon' => fa('chart-pie')
+                ]),
+                $nav->preset('form.charts.number', [
+                    'icon' => fa('font')
+                ]),
+                $nav->preset('form.charts.progress', [
+                    'icon' => fa('percent')
+                ]),
+
             ]),
-            $nav->preset('form.charts.donut', [
-                'icon' => fa('chart-pie')
-            ]),
+
+
         ]);
 
         $nav->section([
