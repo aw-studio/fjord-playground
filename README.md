@@ -1,6 +1,6 @@
 # Fjord Playground
 
-Fjord playground is an example project for fjord. It gives an overview of the functions and the possibility to try them out. You can simply visit the project on [demo.fjord-admin.com](demo.fjord-admin.com) or install it locally.
+Fjord playground is an example project for the [fjord](https://www.fjord-admin.com) admin panel. It gives an overview of the functions and the possibility to try them out. You can simply visit the project on [demo.fjord-admin.com](https://demo.fjord-admin.com) or install it locally.
 
 ## Install
 
