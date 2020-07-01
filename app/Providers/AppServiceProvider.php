@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         if (Fjord::installed()) {
-            View::share('settings', Form::load('collections', 'settings'));
+            //View::share('settings', Form::load('collections', 'settings'));
         }
     }
 }

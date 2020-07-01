@@ -42,6 +42,8 @@ class DumpMake extends Command
         $dump->tables['form_relations'] = MySQLDump::DATA;
         $dump->tables['form_fields'] = MySQLDump::DATA;
         $dump->tables['form_field_translations'] = MySQLDump::DATA;
+        $dump->tables['form_list_items'] = MySQLDump::DATA;
+        $dump->tables['form_list_item_translations'] = MySQLDump::DATA;
         $dump->save(base_path('database/dumps/fjord.sql'));
 
         $this->info('created sql dump database/dumps/fjord.sql');

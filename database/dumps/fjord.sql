@@ -1,4 +1,4 @@
--- Created at 16.6.2020 14:05 using David Grudl MySQL Dump Utility
+-- Created at 1.7.2020 16:46 using David Grudl MySQL Dump Utility
 -- MySQL Server: 5.7.29
 -- Database: fjord-playground
 
@@ -80,6 +80,25 @@ INSERT INTO `form_fields` (`id`, `config_type`, `form_type`, `collection`, `form
 (22,	'FjordApp\\Config\\Form\\Dashboards\\MainDashboardConfig',	'show',	'dashboards',	'main_dashboard',	NULL,	NULL,	'2020-06-16 11:51:47',	'2020-06-16 11:51:47'),
 (23,	'FjordApp\\Config\\Form\\Fields\\ListConfig',	'show',	'fields',	'list',	NULL,	NULL,	'2020-06-16 14:05:08',	'2020-06-16 14:05:08');
 ALTER TABLE `form_fields` ENABLE KEYS;
+
+
+
+-- --------------------------------------------------------
+
+ALTER TABLE `form_list_item_translations` DISABLE KEYS;
+
+ALTER TABLE `form_list_item_translations` ENABLE KEYS;
+
+
+
+-- --------------------------------------------------------
+
+ALTER TABLE `form_list_items` DISABLE KEYS;
+
+INSERT INTO `form_list_items` (`id`, `model_type`, `model_id`, `parent_id`, `config_type`, `form_type`, `field_id`, `value`, `order_column`, `active`, `created_at`, `updated_at`) VALUES
+(1,	'Fjord\\Crud\\Models\\FormField',	23,	0,	'FjordApp\\Config\\Form\\Fields\\ListConfig',	'show',	'menue',	'{\"title\":\"Something\"}',	0,	1,	NULL,	NULL),
+(2,	'Fjord\\Crud\\Models\\FormField',	23,	1,	'FjordApp\\Config\\Form\\Fields\\ListConfig',	'show',	'menue',	'{\"title\":\"Hello World!\"}',	0,	1,	NULL,	NULL);
+ALTER TABLE `form_list_items` ENABLE KEYS;
 
 
 
